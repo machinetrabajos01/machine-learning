@@ -1,0 +1,786 @@
+{% extends "base.html" %}
+
+{% block title %}
+Linear Regression Concepts
+{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <span class="badge bg-success mb-3">
+                    SUPERVISED LEARNING
+                </span>
+
+                <h1 class="display-5 fw-bold">
+                    Linear Regression Concepts
+                </h1>
+
+                <p class="lead text-muted mt-3">
+
+                    Learn how Simple Linear Regression uses the
+                    relationship between two quantitative variables
+                    to generate predictions.
+
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+
+                <div class="display-1">
+                    📈
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- What is Linear Regression? -->
+
+<section class="container py-5">
+
+    <div class="row g-4">
+
+        <div class="col-lg-8">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-primary mb-3">
+                        CONCEPT 01
+                    </span>
+
+                    <h2 class="fw-bold">
+                        What is Linear Regression?
+                    </h2>
+
+                    <p class="text-muted mt-3">
+
+                        Linear Regression is a Supervised Learning
+                        algorithm used to model the relationship between
+                        a dependent variable and one or more independent
+                        variables.
+
+                    </p>
+
+                    <p class="text-muted">
+
+                        In Simple Linear Regression, the model uses
+                        one independent variable to estimate the value
+                        of one dependent variable.
+
+                    </p>
+
+                    <div class="alert alert-success mt-4 mb-0">
+
+                        <strong>
+                            Simple Linear Regression:
+                        </strong>
+
+                        One input variable → One predicted output.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold">
+                        Main Idea
+                    </h5>
+
+                    <p class="text-muted">
+
+                        Find a mathematical line that represents
+                        the relationship between two variables.
+
+                    </p>
+
+                    <div class="text-center py-3">
+
+                        <h3 class="fw-bold">
+                            Y = β₀ + β₁X
+                        </h3>
+
+                    </div>
+
+                    <p class="small text-muted mb-0">
+
+                        The equation represents the relationship
+                        used by the model to generate predictions.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Problems -->
+
+<section class="py-5 bg-dark text-white">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success">
+                CONCEPT 02
+            </span>
+
+            <h2 class="fw-bold mt-3">
+                What Problems Can It Solve?
+            </h2>
+
+            <p class="text-white-50">
+
+                Linear Regression is useful when the goal is to
+                estimate a continuous numerical value.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4 text-center">
+
+                        <div class="display-5 mb-3">
+                            💰
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Price Prediction
+                        </h5>
+
+                        <p class="text-muted mb-0">
+
+                            Estimate a price based on measurable
+                            characteristics.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4 text-center">
+
+                        <div class="display-5 mb-3">
+                            📊
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Demand Prediction
+                        </h5>
+
+                        <p class="text-muted mb-0">
+
+                            Estimate future demand using historical
+                            quantitative information.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4 text-center">
+
+                        <div class="display-5 mb-3">
+                            🌱
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Environmental Analysis
+                        </h5>
+
+                        <p class="text-muted mb-0">
+
+                            Estimate environmental measurements
+                            based on related quantitative variables.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Variables -->
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="badge bg-primary">
+            CONCEPT 03
+        </span>
+
+        <h2 class="fw-bold mt-3">
+            Variables
+        </h2>
+
+        <p class="text-muted">
+            Simple Linear Regression uses two main variables.
+        </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+        <!-- Independent Variable -->
+
+        <div class="col-lg-6">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-success mb-3">
+                        X
+                    </span>
+
+                    <h3 class="fw-bold">
+                        Independent Variable
+                    </h3>
+
+                    <p class="text-muted mt-3">
+
+                        The independent variable is the input used
+                        by the model to make a prediction.
+
+                    </p>
+
+                    <div class="alert alert-success mb-0">
+
+                        <strong>
+                            Example:
+                        </strong>
+
+                        Population
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Dependent Variable -->
+
+        <div class="col-lg-6">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-primary mb-3">
+                        Y
+                    </span>
+
+                    <h3 class="fw-bold">
+                        Dependent Variable
+                    </h3>
+
+                    <p class="text-muted mt-3">
+
+                        The dependent variable is the numerical
+                        value that the model attempts to predict.
+
+                    </p>
+
+                    <div class="alert alert-primary mb-0">
+
+                        <strong>
+                            Example:
+                        </strong>
+
+                        Waste Generation
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- Relationship -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+
+            <div class="col-lg-6">
+
+                <span class="badge bg-warning text-dark mb-3">
+                    CONCEPT 04
+                </span>
+
+                <h2 class="fw-bold">
+                    Relationship Between Variables
+                </h2>
+
+                <p class="text-muted mt-3">
+
+                    Linear Regression attempts to identify a
+                    linear relationship between the independent
+                    variable X and the dependent variable Y.
+
+                </p>
+
+                <p class="text-muted">
+
+                    When changes in X are associated with changes
+                    in Y, the model can estimate this relationship
+                    and use it to make predictions.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="card border-0 shadow-sm">
+
+                    <div class="card-body p-4">
+
+                        <div class="text-center">
+
+                            <div class="fs-4 fw-bold">
+                                Independent Variable
+                            </div>
+
+                            <div class="display-6 my-3">
+                                ↓
+                            </div>
+
+                            <div class="fs-4">
+                                Relationship
+                            </div>
+
+                            <div class="display-6 my-3">
+                                ↓
+                            </div>
+
+                            <div class="fs-4 fw-bold">
+                                Dependent Variable
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Regression Line -->
+
+<section class="container py-5">
+
+    <div class="row g-4">
+
+
+        <div class="col-lg-7">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-success mb-3">
+                        CONCEPT 05
+                    </span>
+
+                    <h2 class="fw-bold">
+                        Regression Line
+                    </h2>
+
+                    <p class="text-muted mt-3">
+
+                        The regression line is the line that
+                        represents the estimated linear relationship
+                        between X and Y.
+
+                    </p>
+
+                    <p class="text-muted">
+
+                        The model calculates the line that best
+                        represents the observed data according
+                        to the Linear Regression objective.
+
+                    </p>
+
+                    <div class="alert alert-dark text-center mb-0">
+
+                        <strong>
+                            Y = β₀ + β₁X
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-5">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4 text-center">
+
+                    <h5 class="fw-bold">
+                        Conceptual Example
+                    </h5>
+
+                    <div class="mt-4">
+
+                        <p class="mb-2">
+                            •
+                        </p>
+
+                        <p class="mb-2">
+                            &nbsp;&nbsp;&nbsp;•
+                        </p>
+
+                        <p class="mb-2">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•
+                        </p>
+
+                        <p class="mb-2">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•
+                        </p>
+
+                        <p class="text-success fw-bold">
+                            Regression Line ↗
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- Prediction -->
+
+<section class="py-5 bg-dark text-white">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+
+            <div class="col-lg-6">
+
+                <span class="badge bg-success mb-3">
+                    CONCEPT 06
+                </span>
+
+                <h2 class="fw-bold">
+                    Prediction
+                </h2>
+
+                <p class="text-white-50 mt-3">
+
+                    Once the model has learned the relationship
+                    between the variables, a new X value can be
+                    provided to estimate the corresponding Y value.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="card bg-light text-dark border-0">
+
+                    <div class="card-body p-4 text-center">
+
+                        <div class="row align-items-center">
+
+                            <div class="col-5">
+
+                                <span class="text-muted">
+                                    New Input
+                                </span>
+
+                                <h4 class="fw-bold">
+                                    X
+                                </h4>
+
+                            </div>
+
+                            <div class="col-2">
+
+                                <div class="display-6">
+                                    →
+                                </div>
+
+                            </div>
+
+                            <div class="col-5">
+
+                                <span class="text-muted">
+                                    Prediction
+                                </span>
+
+                                <h4 class="fw-bold">
+                                    Y
+                                </h4>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Simple Example -->
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="badge bg-success">
+            CONCEPT 07
+        </span>
+
+        <h2 class="fw-bold mt-3">
+            Simple Example
+        </h2>
+
+        <p class="text-muted">
+            A simple example of how Linear Regression can be used.
+        </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+        <div class="col-lg-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold">
+                        Input
+                    </h5>
+
+                    <p class="text-muted">
+
+                        Suppose we know the population of several
+                        areas.
+
+                    </p>
+
+                    <div class="alert alert-success mb-0">
+
+                        Population = X
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold">
+                        Learning
+                    </h5>
+
+                    <p class="text-muted">
+
+                        The model analyzes historical population
+                        and waste generation data.
+
+                    </p>
+
+                    <div class="alert alert-primary mb-0">
+
+                        X → Relationship → Y
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold">
+                        Prediction
+                    </h5>
+
+                    <p class="text-muted">
+
+                        A new population value can be entered to
+                        estimate the expected waste generation.
+
+                    </p>
+
+                    <div class="alert alert-warning mb-0">
+
+                        New X → Predicted Y
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- Summary -->
+
+<section class="container pb-5">
+
+    <div class="alert alert-success border-0 shadow-sm p-4">
+
+        <h4 class="fw-bold">
+            Key Takeaway
+        </h4>
+
+        <p class="mb-0">
+
+            Simple Linear Regression learns the relationship
+            between one independent variable and one dependent
+            variable, allowing the model to estimate new numerical
+            values using the learned regression line.
+
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

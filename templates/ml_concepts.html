@@ -1,0 +1,620 @@
+{% extends "base.html" %}
+
+{% block title %}
+Machine Learning Concepts
+{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <span class="badge bg-success mb-3">
+                    MACHINE LEARNING
+                </span>
+
+                <h1 class="display-5 fw-bold">
+                    Machine Learning Concepts
+                </h1>
+
+                <p class="lead text-muted mt-3">
+                    Understanding the fundamental concepts behind
+                    Machine Learning and how data is transformed
+                    into useful predictions.
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+
+                <div class="display-1">
+                    🤖
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- What is Machine Learning? -->
+
+<section class="container py-5">
+
+    <div class="row g-4">
+
+        <div class="col-lg-8">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-success mb-3">
+                        CONCEPT 01
+                    </span>
+
+                    <h2 class="fw-bold">
+                        What is Machine Learning?
+                    </h2>
+
+                    <p class="text-muted mt-3">
+
+                        Machine Learning is a branch of Artificial
+                        Intelligence that allows computer systems
+                        to learn patterns from data and use those
+                        patterns to make predictions or decisions
+                        without being explicitly programmed for
+                        every possible situation.
+
+                    </p>
+
+                    <p class="text-muted">
+
+                        Instead of defining every rule manually,
+                        Machine Learning algorithms analyze examples,
+                        identify relationships within the data,
+                        and create models that can be used with
+                        new information.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h4 class="fw-bold">
+                        Key Idea
+                    </h4>
+
+                    <p class="text-muted">
+                        Machines learn from data to recognize
+                        patterns and generate useful results.
+                    </p>
+
+                    <div class="alert alert-success mt-4">
+
+                        <strong>
+                            Data → Learning → Model → Prediction
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Main Purpose -->
+
+<section class="container pb-5">
+
+    <div class="card border-0 shadow-sm">
+
+        <div class="card-body p-4 p-lg-5">
+
+            <span class="badge bg-primary mb-3">
+                CONCEPT 02
+            </span>
+
+            <h2 class="fw-bold">
+                Main Purpose of Machine Learning
+            </h2>
+
+            <p class="text-muted mt-3">
+
+                The main purpose of Machine Learning is to use
+                information contained in data to identify patterns,
+                support decisions, automate tasks, and generate
+                predictions about new situations.
+
+            </p>
+
+            <div class="row g-4 mt-3">
+
+                <div class="col-md-4">
+
+                    <div class="p-4 bg-light rounded h-100">
+
+                        <h5 class="fw-bold">
+                            Pattern Recognition
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Discover relationships and patterns
+                            hidden within large datasets.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="p-4 bg-light rounded h-100">
+
+                        <h5 class="fw-bold">
+                            Prediction
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Estimate future or unknown values
+                            using information from previous data.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="p-4 bg-light rounded h-100">
+
+                        <h5 class="fw-bold">
+                            Decision Support
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Provide useful information that can
+                            support human or automated decisions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Data, Training, Model and Prediction -->
+
+<section class="py-5 bg-dark text-white">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success">
+                CONCEPT 03
+            </span>
+
+            <h2 class="fw-bold mt-3">
+                From Data to Prediction
+            </h2>
+
+            <p class="text-white-50">
+                The basic Machine Learning workflow.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-3">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4 text-center">
+
+                        <div class="display-5 mb-3">
+                            📊
+                        </div>
+
+                        <h5 class="fw-bold">
+                            1. Data
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Information collected from real-world
+                            observations or existing datasets.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4 text-center">
+
+                        <div class="display-5 mb-3">
+                            ⚙️
+                        </div>
+
+                        <h5 class="fw-bold">
+                            2. Training
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            The algorithm analyzes the data to
+                            learn relationships and patterns.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4 text-center">
+
+                        <div class="display-5 mb-3">
+                            🧠
+                        </div>
+
+                        <h5 class="fw-bold">
+                            3. Model
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            The trained model represents what the
+                            algorithm learned from the data.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4 text-center">
+
+                        <div class="display-5 mb-3">
+                            🎯
+                        </div>
+
+                        <h5 class="fw-bold">
+                            4. Prediction
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            The model uses new information to
+                            generate a prediction or result.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Importance of Data -->
+
+<section class="container py-5">
+
+    <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+
+            <span class="badge bg-warning text-dark mb-3">
+                CONCEPT 04
+            </span>
+
+            <h2 class="fw-bold">
+                Importance of Data
+            </h2>
+
+            <p class="text-muted mt-3">
+
+                Data is one of the most important components of
+                Machine Learning because models learn from the
+                examples provided during training.
+
+            </p>
+
+            <p class="text-muted">
+
+                The quality, quantity, consistency, and relevance
+                of the data can directly influence the performance
+                of a Machine Learning model.
+
+            </p>
+
+        </div>
+
+
+        <div class="col-lg-6">
+
+            <div class="row g-3">
+
+                <div class="col-6">
+
+                    <div class="card border-0 shadow-sm text-center p-4">
+
+                        <h5 class="fw-bold">
+                            Quality
+                        </h5>
+
+                        <p class="small text-muted mb-0">
+                            Reliable and accurate information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6">
+
+                    <div class="card border-0 shadow-sm text-center p-4">
+
+                        <h5 class="fw-bold">
+                            Quantity
+                        </h5>
+
+                        <p class="small text-muted mb-0">
+                            Enough examples for learning.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6">
+
+                    <div class="card border-0 shadow-sm text-center p-4">
+
+                        <h5 class="fw-bold">
+                            Relevance
+                        </h5>
+
+                        <p class="small text-muted mb-0">
+                            Data related to the problem.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6">
+
+                    <div class="card border-0 shadow-sm text-center p-4">
+
+                        <h5 class="fw-bold">
+                            Consistency
+                        </h5>
+
+                        <p class="small text-muted mb-0">
+                            Data with compatible formats.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Examples -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success">
+                CONCEPT 05
+            </span>
+
+            <h2 class="fw-bold mt-3">
+                Simple Machine Learning Applications
+            </h2>
+
+            <p class="text-muted">
+                Examples of how Machine Learning can be applied
+                to real-world problems.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4">
+
+                        <div class="display-6 mb-3">
+                            📧
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Email Spam Detection
+                        </h5>
+
+                        <p class="text-muted">
+                            A model can classify emails as spam
+                            or legitimate by learning from previous
+                            examples.
+                        </p>
+
+                        <span class="badge bg-primary">
+                            Classification
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4">
+
+                        <div class="display-6 mb-3">
+                            🛒
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Product Recommendations
+                        </h5>
+
+                        <p class="text-muted">
+                            Recommendation systems can analyze
+                            user behavior to suggest products
+                            that may be relevant.
+                        </p>
+
+                        <span class="badge bg-success">
+                            Recommendation
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4">
+
+                        <div class="display-6 mb-3">
+                            🚗
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Traffic Prediction
+                        </h5>
+
+                        <p class="text-muted">
+                            Historical traffic data can be used
+                            to estimate future traffic conditions.
+                        </p>
+
+                        <span class="badge bg-warning text-dark">
+                            Prediction
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Summary -->
+
+<section class="container py-5">
+
+    <div class="alert alert-success border-0 shadow-sm p-4">
+
+        <h4 class="fw-bold">
+            Key Takeaway
+        </h4>
+
+        <p class="mb-0">
+
+            Machine Learning uses data to train models that can
+            identify patterns and generate predictions or useful
+            decisions when new information is provided.
+
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

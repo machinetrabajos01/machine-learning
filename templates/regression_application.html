@@ -1,0 +1,536 @@
+{% extends "base.html" %}
+
+{% block title %}
+Linear Regression Application
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Page Header -->
+
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold">
+            Linear Regression Application
+        </h1>
+
+        <p class="lead text-muted">
+            Predicting house prices based on house area
+        </p>
+
+    </div>
+
+
+    <!-- Problem Context -->
+
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-body p-4">
+
+            <h2 class="fw-bold mb-3">
+                Problem Context
+            </h2>
+
+            <p>
+                This application demonstrates how Simple Linear Regression
+                can be used to estimate the price of a house based on its
+                area.
+            </p>
+
+            <p class="mb-0">
+                The model learns the relationship between house area and
+                house price using a synthetic dataset created for academic
+                purposes.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Dataset Information -->
+
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-body p-4">
+
+            <h2 class="fw-bold mb-4">
+                Dataset Information
+            </h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-3">
+
+                    <div class="border rounded p-3 h-100">
+
+                        <h6 class="text-muted">
+                            Records
+                        </h6>
+
+                        <h3 class="fw-bold">
+                            1,000
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <div class="border rounded p-3 h-100">
+
+                        <h6 class="text-muted">
+                            Independent Variable
+                        </h6>
+
+                        <h5 class="fw-bold">
+                            House_Area
+                        </h5>
+
+                        <small class="text-muted">
+                            Square meters (m²)
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <div class="border rounded p-3 h-100">
+
+                        <h6 class="text-muted">
+                            Dependent Variable
+                        </h6>
+
+                        <h5 class="fw-bold">
+                            House_Price
+                        </h5>
+
+                        <small class="text-muted">
+                            Colombian pesos (COP)
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <div class="border rounded p-3 h-100">
+
+                        <h6 class="text-muted">
+                            Dataset Type
+                        </h6>
+
+                        <h5 class="fw-bold">
+                            Synthetic
+                        </h5>
+
+                        <small class="text-muted">
+                            Academic purposes
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Variables -->
+
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-body p-4">
+
+            <h2 class="fw-bold mb-3">
+                Variables
+            </h2>
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered align-middle">
+
+                    <thead class="table-dark">
+
+                        <tr>
+
+                            <th>
+                                Variable
+                            </th>
+
+                            <th>
+                                Role
+                            </th>
+
+                            <th>
+                                Description
+                            </th>
+
+                            <th>
+                                Unit
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                <strong>House_Area</strong>
+                            </td>
+
+                            <td>
+                                Independent variable (X)
+                            </td>
+
+                            <td>
+                                Total area of the house.
+                            </td>
+
+                            <td>
+                                m²
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <strong>House_Price</strong>
+                            </td>
+
+                            <td>
+                                Dependent variable (Y)
+                            </td>
+
+                            <td>
+                                Estimated price of the house.
+                            </td>
+
+                            <td>
+                                COP
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Regression Plot -->
+
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-body p-4">
+
+            <h2 class="fw-bold mb-3">
+                Regression Visualization
+            </h2>
+
+            <p class="text-muted">
+                The scatter plot shows the relationship between house area
+                and house price. The regression line represents the
+                predictions generated by the trained model.
+            </p>
+
+            <div class="text-center mt-4">
+
+                <img
+                    src="{{ url_for('static', filename='housing_regression.png') }}"
+                    class="img-fluid rounded shadow"
+                    alt="House area versus house price regression plot"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Model Information -->
+
+    <!-- Model Information -->
+
+<div class="card shadow-sm mb-4">
+
+    <div class="card-body p-4">
+
+        <h2 class="fw-bold mb-3">
+            Machine Learning Model
+        </h2>
+
+        <p>
+            The application uses the
+            <strong>LinearRegression</strong>
+            algorithm from
+            <strong>scikit-learn</strong>.
+        </p>
+
+
+        <!-- Training Code -->
+
+        <div class="bg-light border rounded p-3 mb-4">
+
+            <code>
+                model.fit(X, y)
+            </code>
+
+        </div>
+
+
+        <p>
+            The model is trained using House_Area as the independent
+            variable and House_Price as the dependent variable.
+        </p>
+
+
+        <!-- Model Metrics -->
+
+        <h4 class="fw-bold mt-4 mb-3">
+            Model Results
+        </h4>
+
+        <div class="row g-4">
+
+
+            <!-- R2 Score -->
+
+            <div class="col-md-4">
+
+                <div class="border rounded p-4 text-center h-100">
+
+                    <h6 class="text-muted">
+                        R² Score
+                    </h6>
+
+                    <h2 class="fw-bold text-success">
+                        {{ "%.4f"|format(r2) }}
+                    </h2>
+
+                    <small class="text-muted">
+                        Model fit
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Coefficient -->
+
+            <div class="col-md-4">
+
+                <div class="border rounded p-4 text-center h-100">
+
+                    <h6 class="text-muted">
+                        Coefficient
+                    </h6>
+
+                    <h4 class="fw-bold">
+                        {{ "{:,.2f}".format(coefficient) }}
+                    </h4>
+
+                    <small class="text-muted">
+                        COP per m²
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Intercept -->
+
+            <div class="col-md-4">
+
+                <div class="border rounded p-4 text-center h-100">
+
+                    <h6 class="text-muted">
+                        Intercept
+                    </h6>
+
+                    <h4 class="fw-bold">
+                        {{ "{:,.2f}".format(intercept) }}
+                    </h4>
+
+                    <small class="text-muted">
+                        Base value
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Regression Equation -->
+
+        <div class="mt-4">
+
+            <h4 class="fw-bold mb-3">
+                Regression Equation
+            </h4>
+
+            <div class="alert alert-secondary">
+
+                <code>
+
+                House_Price =
+                {{ "{:,.2f}".format(intercept) }}
+                +
+                {{ "{:,.2f}".format(coefficient) }}
+                × House_Area
+
+                </code>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    <!-- Prediction Section -->
+
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-body p-4">
+
+            <h2 class="fw-bold mb-3">
+                House Price Prediction
+            </h2>
+
+            <p class="text-muted">
+                Enter a house area to obtain a price prediction from the
+                trained regression model.
+            </p>
+
+
+            <form method="POST">
+
+                <div class="row align-items-end">
+
+                    <div class="col-md-8">
+
+                        <label
+                            for="houseArea"
+                            class="form-label fw-bold"
+                        >
+                            House Area (m²)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="houseArea"
+                            name="house_area"
+                            placeholder="Example: 100"
+                            min="1"
+                            step="0.01"
+                            value="{{ house_area if house_area else '' }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="col-md-4 mt-3 mt-md-0">
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary w-100"
+                        >
+                            Predict Price
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+
+            <!-- Prediction Result -->
+
+            {% if formatted_prediction %}
+
+            <div class="alert alert-success mt-4">
+
+                <h4 class="fw-bold">
+                    Prediction Result
+                </h4>
+
+                <p class="mb-0">
+
+                    For a house with an area of
+                    <strong>{{ house_area }} m²</strong>,
+
+                    the predicted price is:
+
+                    <strong>
+                        ${{ formatted_prediction }} COP
+                    </strong>
+
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- Error Message -->
+
+            {% if error %}
+
+            <div class="alert alert-danger mt-4">
+
+                <strong>Error:</strong>
+                {{ error }}
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- Dataset Source -->
+
+    <div class="alert alert-info">
+
+        <strong>Dataset Source:</strong>
+        Synthetic dataset created for academic purposes.
+
+    </div>
+
+</div>
+
+{% endblock %}

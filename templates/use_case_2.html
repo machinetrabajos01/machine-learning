@@ -1,0 +1,392 @@
+{% extends "base.html" %}
+
+{% block title %}
+Use Case 2 | Email Spam Detection
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <span class="badge bg-warning text-dark mb-3">
+            USE CASE 02
+        </span>
+
+        <h1 class="display-5 fw-bold">
+            Email Spam Detection
+        </h1>
+
+        <p class="lead text-muted mt-3">
+            Using Machine Learning to identify unwanted and
+            potentially harmful email messages.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="container py-5">
+
+    <div class="row g-4">
+
+        <div class="col-lg-8">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-primary mb-3">
+                        PROBLEM CONTEXT
+                    </span>
+
+                    <h2 class="fw-bold">
+                        The Problem
+                    </h2>
+
+                    <p class="text-muted mt-3">
+
+                        Email users receive large numbers of messages
+                        every day. Some messages are unwanted spam,
+                        advertisements, scams, or potentially malicious
+                        communications.
+
+                    </p>
+
+                    <p class="text-muted">
+
+                        Manually identifying every unwanted message
+                        would be inefficient. Machine Learning can
+                        automatically analyze previous examples and
+                        identify patterns associated with spam.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold">
+                        Main Question
+                    </h5>
+
+                    <div class="alert alert-warning mt-3">
+
+                        Is this email message spam or legitimate?
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="py-5 bg-dark text-white">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-warning text-dark">
+                DATA
+            </span>
+
+            <h2 class="fw-bold mt-3">
+                Data That Could Be Used
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Email Text
+                        </h5>
+
+                        <p class="text-muted">
+                            Words and phrases contained in the
+                            email message.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Sender Information
+                        </h5>
+
+                        <p class="text-muted">
+                            Information about the sender and
+                            message origin.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Message Features
+                        </h5>
+
+                        <p class="text-muted">
+                            Links, keywords, message length,
+                            and other measurable characteristics.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="container py-5">
+
+    <div class="row g-4">
+
+        <div class="col-lg-6">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-primary mb-3">
+                        MODEL OBJECTIVE
+                    </span>
+
+                    <h3 class="fw-bold">
+                        Classification
+                    </h3>
+
+                    <p class="text-muted">
+                        The model should classify each email into
+                        one of two categories.
+                    </p>
+
+                    <div class="row text-center mt-4">
+
+                        <div class="col-6">
+
+                            <div class="p-3 bg-light rounded">
+
+                                <h5 class="fw-bold">
+                                    Spam
+                                </h5>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="p-3 bg-light rounded">
+
+                                <h5 class="fw-bold">
+                                    Legitimate
+                                </h5>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-6">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-success mb-3">
+                        MACHINE LEARNING TYPE
+                    </span>
+
+                    <h3 class="fw-bold">
+                        Supervised Learning
+                    </h3>
+
+                    <p class="text-muted">
+                        The model can learn from previously labeled
+                        emails where the correct category is known.
+                    </p>
+
+                    <span class="badge bg-primary">
+                        Classification
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success">
+                POTENTIAL BENEFITS
+            </span>
+
+            <h2 class="fw-bold mt-3">
+                Why Use Machine Learning?
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Automation
+                        </h5>
+
+                        <p class="text-muted">
+                            Automatically classify large numbers
+                            of incoming messages.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Time Saving
+                        </h5>
+
+                        <p class="text-muted">
+                            Reduce the time users spend identifying
+                            unwanted messages.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Security
+                        </h5>
+
+                        <p class="text-muted">
+                            Help identify suspicious or potentially
+                            harmful communications.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="container py-5">
+
+    <div class="alert alert-warning border-0 shadow-sm p-4">
+
+        <h4 class="fw-bold">
+            Key Takeaway
+        </h4>
+
+        <p class="mb-0">
+            Machine Learning can learn from labeled email examples
+            and automatically classify new messages as spam or legitimate.
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

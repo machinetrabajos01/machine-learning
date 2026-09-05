@@ -1,0 +1,441 @@
+{% extends "base.html" %}
+
+{% block title %}
+Use Case 1 | Waste Generation Prediction
+{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <span class="badge bg-success mb-3">
+            USE CASE 01
+        </span>
+
+        <h1 class="display-5 fw-bold">
+            Waste Generation Prediction
+        </h1>
+
+        <p class="lead text-muted mt-3">
+            Using Machine Learning to estimate waste generation
+            based on population and other relevant factors.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Problem Context -->
+
+<section class="container py-5">
+
+    <div class="row g-4">
+
+        <div class="col-lg-8">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-primary mb-3">
+                        PROBLEM CONTEXT
+                    </span>
+
+                    <h2 class="fw-bold">
+                        The Problem
+                    </h2>
+
+                    <p class="text-muted mt-3">
+
+                        Urban areas generate large amounts of solid
+                        waste every day. Waste management organizations
+                        need reliable information to estimate how much
+                        waste may be generated in different areas.
+
+                    </p>
+
+                    <p class="text-muted">
+
+                        Population size can be related to the amount
+                        of waste generated. Analyzing this relationship
+                        can help organizations understand waste generation
+                        patterns and improve planning.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold">
+                        Main Question
+                    </h5>
+
+                    <div class="alert alert-success mt-3">
+
+                        Can Machine Learning estimate waste generation
+                        based on population?
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Data -->
+
+<section class="py-5 bg-dark text-white">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success">
+                DATA
+            </span>
+
+            <h2 class="fw-bold mt-3">
+                Data That Could Be Used
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Population
+                        </h5>
+
+                        <p class="text-muted">
+                            Number of people living in a specific
+                            area or geographical zone.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Waste Generation
+                        </h5>
+
+                        <p class="text-muted">
+                            Amount of waste generated during a
+                            specific period.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Geographic Information
+                        </h5>
+
+                        <p class="text-muted">
+                            Information about locations, areas,
+                            neighborhoods, or administrative zones.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Machine Learning Objective -->
+
+<section class="container py-5">
+
+    <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+
+            <span class="badge bg-success mb-3">
+                MACHINE LEARNING OBJECTIVE
+            </span>
+
+            <h2 class="fw-bold">
+                What Should the Model Do?
+            </h2>
+
+            <p class="text-muted mt-3">
+
+                The model should learn the relationship between
+                population and waste generation using historical
+                observations.
+
+            </p>
+
+            <p class="text-muted">
+
+                Once trained, the model could use a new population
+                value to estimate the expected amount of waste
+                generation.
+
+            </p>
+
+        </div>
+
+
+        <div class="col-lg-6">
+
+            <div class="card border-0 shadow-sm">
+
+                <div class="card-body p-4">
+
+                    <div class="row text-center">
+
+                        <div class="col-6">
+
+                            <h6 class="text-muted">
+                                INPUT
+                            </h6>
+
+                            <h4 class="fw-bold">
+                                Population
+                            </h4>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <h6 class="text-muted">
+                                OUTPUT
+                            </h6>
+
+                            <h4 class="fw-bold">
+                                Waste Generation
+                            </h4>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ML Type -->
+
+<section class="container pb-5">
+
+    <div class="card border-0 shadow-sm">
+
+        <div class="card-body p-4 p-lg-5">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-8">
+
+                    <span class="badge bg-primary mb-3">
+                        MACHINE LEARNING TYPE
+                    </span>
+
+                    <h3 class="fw-bold">
+                        Supervised Learning
+                    </h3>
+
+                    <p class="text-muted mb-0">
+
+                        This problem can be addressed using Supervised
+                        Learning because historical data contains known
+                        input and output values.
+
+                    </p>
+
+                </div>
+
+                <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+
+                    <span class="badge bg-success fs-6">
+                        Regression
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Benefits -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success">
+                POTENTIAL BENEFITS
+            </span>
+
+            <h2 class="fw-bold mt-3">
+                Why Use Machine Learning?
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Better Planning
+                        </h5>
+
+                        <p class="text-muted">
+                            Improve waste collection and resource
+                            planning using estimated waste generation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Resource Allocation
+                        </h5>
+
+                        <p class="text-muted">
+                            Help organizations allocate vehicles,
+                            personnel, and infrastructure more efficiently.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Decision Support
+                        </h5>
+
+                        <p class="text-muted">
+                            Provide data-driven information for
+                            waste management decisions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Summary -->
+
+<section class="container py-5">
+
+    <div class="alert alert-success border-0 shadow-sm p-4">
+
+        <h4 class="fw-bold">
+            Key Takeaway
+        </h4>
+
+        <p class="mb-0">
+
+            Machine Learning can help estimate waste generation
+            by learning relationships between population and
+            historical waste data.
+
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

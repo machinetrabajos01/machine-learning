@@ -1,0 +1,378 @@
+{% extends "base.html" %}
+
+{% block title %}
+Use Case 4 | Traffic Optimization
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <span class="badge bg-danger mb-3">
+            USE CASE 04
+        </span>
+
+        <h1 class="display-5 fw-bold">
+            Traffic Optimization
+        </h1>
+
+        <p class="lead text-muted mt-3">
+            Using Machine Learning to improve traffic management
+            and select better actions in changing road conditions.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="container py-5">
+
+    <div class="row g-4">
+
+        <div class="col-lg-8">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-primary mb-3">
+                        PROBLEM CONTEXT
+                    </span>
+
+                    <h2 class="fw-bold">
+                        The Problem
+                    </h2>
+
+                    <p class="text-muted mt-3">
+
+                        Urban traffic conditions change continuously
+                        because of vehicle volume, accidents, weather,
+                        road construction, and other factors.
+
+                    </p>
+
+                    <p class="text-muted">
+
+                        Traffic management systems need to select
+                        actions that can improve traffic flow while
+                        responding to changing conditions.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold">
+                        Main Question
+                    </h5>
+
+                    <div class="alert alert-danger mt-3">
+
+                        Which action can improve traffic conditions
+                        in the current situation?
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="py-5 bg-dark text-white">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-danger">
+                DATA
+            </span>
+
+            <h2 class="fw-bold mt-3">
+                Data That Could Be Used
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Traffic Volume
+                        </h5>
+
+                        <p class="text-muted">
+                            Number of vehicles observed on specific
+                            roads or intersections.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Road Conditions
+                        </h5>
+
+                        <p class="text-muted">
+                            Information about congestion, accidents,
+                            construction, and road availability.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Environmental Conditions
+                        </h5>
+
+                        <p class="text-muted">
+                            Weather and other external factors that
+                            may influence traffic conditions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="container py-5">
+
+    <div class="row g-4">
+
+        <div class="col-lg-6">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-primary mb-3">
+                        MODEL OBJECTIVE
+                    </span>
+
+                    <h3 class="fw-bold">
+                        Select Better Actions
+                    </h3>
+
+                    <p class="text-muted">
+
+                        The system should learn which actions produce
+                        better traffic conditions through repeated
+                        interaction with the environment.
+
+                    </p>
+
+                    <div class="alert alert-danger mb-0">
+
+                        Action → Environment → Feedback → Improvement
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-6">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-success mb-3">
+                        MACHINE LEARNING TYPE
+                    </span>
+
+                    <h3 class="fw-bold">
+                        Reinforcement Learning
+                    </h3>
+
+                    <p class="text-muted">
+
+                        Reinforcement Learning can be used because
+                        an agent can interact with the environment,
+                        receive feedback, and improve its actions.
+
+                    </p>
+
+                    <span class="badge bg-danger">
+                        Decision Making
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success">
+                POTENTIAL BENEFITS
+            </span>
+
+            <h2 class="fw-bold mt-3">
+                Why Use Machine Learning?
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Traffic Flow
+                        </h5>
+
+                        <p class="text-muted">
+                            Help improve traffic flow through
+                            data-driven decisions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Adaptability
+                        </h5>
+
+                        <p class="text-muted">
+                            Respond to changing traffic conditions
+                            through continuous learning.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            Efficiency
+                        </h5>
+
+                        <p class="text-muted">
+                            Support more efficient transportation
+                            management.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="container py-5">
+
+    <div class="alert alert-danger border-0 shadow-sm p-4">
+
+        <h4 class="fw-bold">
+            Key Takeaway
+        </h4>
+
+        <p class="mb-0">
+
+            Reinforcement Learning can allow an agent to learn
+            better traffic management actions through interaction,
+            feedback, and repeated experience.
+
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

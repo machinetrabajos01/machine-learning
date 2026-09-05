@@ -1,0 +1,587 @@
+{% extends "base.html" %}
+
+{% block title %}
+Types of Machine Learning
+{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <span class="badge bg-success mb-3">
+                    MACHINE LEARNING
+                </span>
+
+                <h1 class="display-5 fw-bold">
+                    Types of Machine Learning
+                </h1>
+
+                <p class="lead text-muted mt-3">
+
+                    Machine Learning can be divided into different
+                    approaches depending on how an algorithm learns
+                    from data and how feedback is provided.
+
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+
+                <div class="display-1">
+                    🧠
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Introduction -->
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="badge bg-primary">
+            OVERVIEW
+        </span>
+
+        <h2 class="fw-bold mt-3">
+            Three Main Approaches
+        </h2>
+
+        <p class="text-muted">
+
+            Each type of Machine Learning is designed for
+            different kinds of problems and data.
+
+        </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+        <!-- Supervised Learning -->
+
+        <div class="col-lg-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="display-5 mb-3">
+                        🎯
+                    </div>
+
+                    <span class="badge bg-success mb-3">
+                        TYPE 01
+                    </span>
+
+                    <h3 class="fw-bold">
+                        Supervised Learning
+                    </h3>
+
+                    <p class="text-muted mt-3">
+
+                        Supervised Learning uses labeled data,
+                        where the desired output is known during
+                        the training process.
+
+                    </p>
+
+                    <hr>
+
+                    <h6 class="fw-bold">
+                        Main Characteristics
+                    </h6>
+
+                    <ul class="text-muted">
+
+                        <li>
+                            Uses labeled datasets.
+                        </li>
+
+                        <li>
+                            Learns a relationship between inputs
+                            and known outputs.
+                        </li>
+
+                        <li>
+                            Can be used for prediction and classification.
+                        </li>
+
+                    </ul>
+
+                    <h6 class="fw-bold mt-4">
+                        Problems It Can Solve
+                    </h6>
+
+                    <div>
+
+                        <span class="badge bg-primary me-1 mb-1">
+                            Classification
+                        </span>
+
+                        <span class="badge bg-primary me-1 mb-1">
+                            Regression
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Unsupervised Learning -->
+
+        <div class="col-lg-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="display-5 mb-3">
+                        🔎
+                    </div>
+
+                    <span class="badge bg-warning text-dark mb-3">
+                        TYPE 02
+                    </span>
+
+                    <h3 class="fw-bold">
+                        Unsupervised Learning
+                    </h3>
+
+                    <p class="text-muted mt-3">
+
+                        Unsupervised Learning works with data
+                        without predefined labels and attempts
+                        to discover hidden patterns or structures.
+
+                    </p>
+
+                    <hr>
+
+                    <h6 class="fw-bold">
+                        Main Characteristics
+                    </h6>
+
+                    <ul class="text-muted">
+
+                        <li>
+                            Uses unlabeled datasets.
+                        </li>
+
+                        <li>
+                            Discovers patterns and relationships.
+                        </li>
+
+                        <li>
+                            Groups or organizes similar data.
+                        </li>
+
+                    </ul>
+
+                    <h6 class="fw-bold mt-4">
+                        Problems It Can Solve
+                    </h6>
+
+                    <div>
+
+                        <span class="badge bg-warning text-dark me-1 mb-1">
+                            Clustering
+                        </span>
+
+                        <span class="badge bg-warning text-dark me-1 mb-1">
+                            Dimensionality Reduction
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Reinforcement Learning -->
+
+        <div class="col-lg-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="display-5 mb-3">
+                        🎮
+                    </div>
+
+                    <span class="badge bg-danger mb-3">
+                        TYPE 03
+                    </span>
+
+                    <h3 class="fw-bold">
+                        Reinforcement Learning
+                    </h3>
+
+                    <p class="text-muted mt-3">
+
+                        Reinforcement Learning allows an agent
+                        to learn through interactions with an
+                        environment using rewards and penalties.
+
+                    </p>
+
+                    <hr>
+
+                    <h6 class="fw-bold">
+                        Main Characteristics
+                    </h6>
+
+                    <ul class="text-muted">
+
+                        <li>
+                            Learns through interaction.
+                        </li>
+
+                        <li>
+                            Uses rewards and penalties.
+                        </li>
+
+                        <li>
+                            Improves decisions through experience.
+                        </li>
+
+                    </ul>
+
+                    <h6 class="fw-bold mt-4">
+                        Problems It Can Solve
+                    </h6>
+
+                    <div>
+
+                        <span class="badge bg-danger me-1 mb-1">
+                            Decision Making
+                        </span>
+
+                        <span class="badge bg-danger me-1 mb-1">
+                            Control
+                        </span>
+
+                        <span class="badge bg-danger me-1 mb-1">
+                            Optimization
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- Comparison -->
+
+<section class="py-5 bg-dark text-white">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success">
+                COMPARISON
+            </span>
+
+            <h2 class="fw-bold mt-3">
+                How Are They Different?
+            </h2>
+
+            <p class="text-white-50">
+
+                The main difference is how the algorithm
+                receives information and learns from it.
+
+            </p>
+
+        </div>
+
+
+        <div class="table-responsive">
+
+            <table class="table table-dark table-hover align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Type
+                        </th>
+
+                        <th>
+                            Data
+                        </th>
+
+                        <th>
+                            Main Goal
+                        </th>
+
+                        <th>
+                            Example
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td class="fw-bold">
+                            Supervised
+                        </td>
+
+                        <td>
+                            Labeled
+                        </td>
+
+                        <td>
+                            Predict or classify
+                        </td>
+
+                        <td>
+                            Predicting waste generation
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td class="fw-bold">
+                            Unsupervised
+                        </td>
+
+                        <td>
+                            Unlabeled
+                        </td>
+
+                        <td>
+                            Discover patterns
+                        </td>
+
+                        <td>
+                            Customer segmentation
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td class="fw-bold">
+                            Reinforcement
+                        </td>
+
+                        <td>
+                            Interaction and feedback
+                        </td>
+
+                        <td>
+                            Learn optimal actions
+                        </td>
+
+                        <td>
+                            Autonomous navigation
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Detailed Examples -->
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="badge bg-success">
+            EXAMPLES
+        </span>
+
+        <h2 class="fw-bold mt-3">
+            Real-World Applications
+        </h2>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+        <div class="col-md-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold">
+                        Supervised Learning
+                    </h5>
+
+                    <p class="text-muted">
+
+                        A company can use historical sales data
+                        to predict future sales.
+
+                    </p>
+
+                    <div class="alert alert-success mb-0">
+
+                        <strong>
+                            Example:
+                        </strong>
+
+                        Sales prediction.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold">
+                        Unsupervised Learning
+                    </h5>
+
+                    <p class="text-muted">
+
+                        A business can analyze customer behavior
+                        and group customers with similar characteristics.
+
+                    </p>
+
+                    <div class="alert alert-warning mb-0">
+
+                        <strong>
+                            Example:
+                        </strong>
+
+                        Customer segmentation.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold">
+                        Reinforcement Learning
+                    </h5>
+
+                    <p class="text-muted">
+
+                        An autonomous system can learn which actions
+                        produce better results through repeated interaction.
+
+                    </p>
+
+                    <div class="alert alert-danger mb-0">
+
+                        <strong>
+                            Example:
+                        </strong>
+
+                        Autonomous control.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- Key Takeaway -->
+
+<section class="container pb-5">
+
+    <div class="alert alert-success border-0 shadow-sm p-4">
+
+        <h4 class="fw-bold">
+            Key Takeaway
+        </h4>
+
+        <p class="mb-0">
+
+            Supervised Learning learns from labeled examples,
+            Unsupervised Learning discovers patterns in unlabeled
+            data, and Reinforcement Learning learns through
+            interaction and feedback.
+
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}
