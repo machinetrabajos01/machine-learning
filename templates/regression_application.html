@@ -272,8 +272,6 @@ Linear Regression Application
 
     <!-- Model Information -->
 
-    <!-- Model Information -->
-
 <div class="card shadow-sm mb-4">
 
     <div class="card-body p-4">
@@ -306,6 +304,62 @@ Linear Regression Application
             variable and House_Price as the dependent variable.
         </p>
 
+        <!-- Training and Prediction Process -->
+
+        <div class="row g-4 mt-2">
+
+            <div class="col-md-6">
+
+                <div class="border rounded p-4 h-100">
+
+                    <h5 class="fw-bold">
+                        Model Training
+                    </h5>
+
+                    <p class="text-muted">
+                        The model learns the relationship between house area
+                        and house price using the available training data.
+                    </p>
+
+                    <div class="bg-light border rounded p-3">
+
+                        <code>
+                            model.fit(X, y)
+                        </code>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="border rounded p-4 h-100">
+
+                    <h5 class="fw-bold">
+                        Price Prediction
+                    </h5>
+
+                    <p class="text-muted">
+                        After training, the model can estimate the price
+                        of a house based on its area.
+                    </p>
+
+                    <div class="bg-light border rounded p-3">
+
+                        <code>
+                            model.predict([[house_area]])
+                        </code>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
         <!-- Model Metrics -->
 
