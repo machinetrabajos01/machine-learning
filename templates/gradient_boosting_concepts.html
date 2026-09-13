@@ -1,0 +1,566 @@
+{% extends "base.html" %}
+
+{% block title %}
+Gradient Boosting Classifier Concepts
+{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <span class="badge bg-success mb-3">
+                    GRADIENT BOOSTING
+                </span>
+
+                <h1 class="display-5 fw-bold">
+                    Gradient Boosting Classifier
+                </h1>
+
+                <p class="lead text-muted mt-3">
+                    Understanding how sequential decision trees can be
+                    combined to improve classification performance.
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+
+                <div class="display-1">
+                    🤖
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- What is Gradient Boosting? -->
+
+<section class="container py-5">
+
+    <div class="row g-4">
+
+        <div class="col-lg-8">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-success mb-3">
+                        CONCEPT 01
+                    </span>
+
+                    <h2 class="fw-bold">
+                        What is Gradient Boosting?
+                    </h2>
+
+                    <p class="text-muted mt-3">
+                        Gradient Boosting is a Machine Learning ensemble
+                        technique that combines several weak prediction
+                        models, usually decision trees, to create a stronger
+                        classification model.
+                    </p>
+
+                    <p class="text-muted">
+                        Each new tree is trained to reduce the errors made
+                        by the previous models. The process continues
+                        sequentially until the final ensemble can make
+                        accurate predictions.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h4 class="fw-bold">
+                        Key Idea
+                    </h4>
+
+                    <p class="text-muted">
+                        Weak learners are combined sequentially to create
+                        a stronger predictive model.
+                    </p>
+
+                    <div class="alert alert-success mt-4">
+                        <strong>
+                            Tree → Error Correction → Tree → Final Model
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- How it Works -->
+
+<section class="py-5 bg-dark text-white">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success">
+                CONCEPT 02
+            </span>
+
+            <h2 class="fw-bold mt-3 text-white">
+                How Gradient Boosting Works
+            </h2>
+
+            <p class="text-white-50">
+                The model improves its predictions through a sequence of
+                learning steps.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-3">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4 text-center">
+
+                        <div class="display-5 mb-3">
+                            1️⃣
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Initial Model
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            The process begins with an initial weak
+                            prediction model.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4 text-center">
+
+                        <div class="display-5 mb-3">
+                            2️⃣
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Find Errors
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            The algorithm identifies errors from the
+                            previous predictions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4 text-center">
+
+                        <div class="display-5 mb-3">
+                            3️⃣
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Add a Tree
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            A new decision tree focuses on correcting
+                            previous errors.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4 text-center">
+
+                        <div class="display-5 mb-3">
+                            4️⃣
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Combine Models
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            The trees are combined into a stronger final
+                            prediction model.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Problems Solved -->
+
+<section class="container py-5">
+
+    <div class="card border-0 shadow-sm">
+
+        <div class="card-body p-4 p-lg-5">
+
+            <span class="badge bg-primary mb-3">
+                CONCEPT 03
+            </span>
+
+            <h2 class="fw-bold">
+                Problems Solved by Gradient Boosting
+            </h2>
+
+            <p class="text-muted mt-3">
+                Gradient Boosting is useful when a classification problem
+                requires the model to identify complex relationships between
+                several independent variables.
+            </p>
+
+            <div class="row g-4 mt-3">
+
+                <div class="col-md-4">
+
+                    <div class="p-4 bg-light rounded h-100">
+
+                        <h5 class="fw-bold">
+                            Complex Patterns
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            It can learn nonlinear relationships and
+                            interactions between variables.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="p-4 bg-light rounded h-100">
+
+                        <h5 class="fw-bold">
+                            Classification
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            It can separate observations into different
+                            target classes.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="p-4 bg-light rounded h-100">
+
+                        <h5 class="fw-bold">
+                            Prediction Errors
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Each new learner attempts to correct errors
+                            from previous learners.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Advantages and Limitations -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success">
+                CONCEPT 04
+            </span>
+
+            <h2 class="fw-bold mt-3">
+                Characteristics of the Model
+            </h2>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4">
+
+                        <h4 class="fw-bold">
+                            Advantages
+                        </h4>
+
+                        <ul class="text-muted mt-3">
+
+                            <li class="mb-2">
+                                Can model complex relationships.
+                            </li>
+
+                            <li class="mb-2">
+                                Combines multiple weak learners.
+                            </li>
+
+                            <li class="mb-2">
+                                Can achieve high predictive performance.
+                            </li>
+
+                            <li>
+                                Works with multiple independent variables.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body p-4">
+
+                        <h4 class="fw-bold">
+                            Limitations
+                        </h4>
+
+                        <ul class="text-muted mt-3">
+
+                            <li class="mb-2">
+                                Training can require more computational
+                                resources.
+                            </li>
+
+                            <li class="mb-2">
+                                Model parameters may require tuning.
+                            </li>
+
+                            <li class="mb-2">
+                                The model can overfit if poorly configured.
+                            </li>
+
+                            <li>
+                                Interpretation can be more complex than
+                                simpler models.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Real World Example -->
+
+<section class="container py-5">
+
+    <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+
+            <span class="badge bg-warning text-dark mb-3">
+                CONCEPT 05
+            </span>
+
+            <h2 class="fw-bold">
+                Real-World Example
+            </h2>
+
+            <p class="text-muted mt-3">
+                Gradient Boosting can be used to classify residential
+                properties according to different categories based on
+                characteristics such as area, number of bedrooms,
+                bathrooms, and property age.
+            </p>
+
+            <p class="text-muted">
+                In this project, the model classifies properties into
+                <strong>Low Price</strong> and
+                <strong>High Price</strong> categories.
+            </p>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="row g-3">
+
+                <div class="col-6">
+
+                    <div class="card border-0 shadow-sm text-center p-4">
+
+                        <h5 class="fw-bold">
+                            House Area
+                        </h5>
+
+                        <p class="small text-muted mb-0">
+                            Area measured in square meters.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-6">
+
+                    <div class="card border-0 shadow-sm text-center p-4">
+
+                        <h5 class="fw-bold">
+                            Bedrooms
+                        </h5>
+
+                        <p class="small text-muted mb-0">
+                            Number of bedrooms.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-6">
+
+                    <div class="card border-0 shadow-sm text-center p-4">
+
+                        <h5 class="fw-bold">
+                            Bathrooms
+                        </h5>
+
+                        <p class="small text-muted mb-0">
+                            Number of bathrooms.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-6">
+
+                    <div class="card border-0 shadow-sm text-center p-4">
+
+                        <h5 class="fw-bold">
+                            House Age
+                        </h5>
+
+                        <p class="small text-muted mb-0">
+                            Age of the property in years.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Summary -->
+
+<section class="container py-5">
+
+    <div class="alert alert-success border-0 shadow-sm p-4">
+
+        <h4 class="fw-bold">
+            Key Takeaway
+        </h4>
+
+        <p class="mb-0">
+            Gradient Boosting combines several weak learners sequentially,
+            allowing the model to correct previous errors and improve
+            classification performance.
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,7 +1,31 @@
+/* General */
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
+    color: #212529;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #151a21;
+}
+
+p {
+    line-height: 1.7;
+}
+
+section {
+    scroll-margin-top: 80px;
+}
+
+
+/* Hero */
 
 .hero-section {
     background: linear-gradient(
@@ -11,15 +35,32 @@ body {
     );
 }
 
-.min-vh-75 {
-    min-height: 75vh;
+.page-hero {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
+
+
+/* Navigation */
 
 .navbar-brand {
     letter-spacing: 0.5px;
+    font-weight: 700;
 }
 
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+
+/* Cards */
+
 .card {
+    border-radius: 10px;
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
@@ -27,17 +68,182 @@ body {
 
 .card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
-/* Nested dropdown */
+
+.card-body {
+    border-radius: 10px;
+}
+
+
+/* Badges */
+
+.badge {
+    padding: 0.55em 0.75em;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+
+/* Buttons */
+
+.btn {
+    border-radius: 7px;
+    font-weight: 600;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Forms */
+
+.form-control,
+.form-select {
+    border-radius: 7px;
+    padding: 0.7rem 0.85rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+}
+
+
+/* Tables */
+
+.table {
+    background-color: #ffffff;
+}
+
+.table th {
+    font-weight: 700;
+}
+
+.table td,
+.table th {
+    padding: 0.85rem;
+    vertical-align: middle;
+}
+
+
+/* Alerts */
+
+.alert {
+    border-radius: 9px;
+}
+
+.alert-success {
+    border-left: 4px solid #198754;
+}
+
+.alert-primary {
+    border-left: 4px solid #0d6efd;
+}
+
+.alert-warning {
+    border-left: 4px solid #ffc107;
+}
+
+.alert-danger {
+    border-left: 4px solid #dc3545;
+}
+
+
+/* Concept Cards */
+
+.concept-card {
+    height: 100%;
+    background-color: #ffffff;
+}
+
+.concept-label {
+    display: inline-block;
+    padding: 0.45rem 0.75rem;
+    border-radius: 7px;
+    background-color: #198754;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+
+/* Key Idea */
+
+.key-idea {
+    background-color: #e9f7ef;
+    border: 1px solid #b8dfc9;
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+
+/* Metric Cards */
+
+.metric-card {
+    min-height: 190px;
+}
+
+.metric-value {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+
+/* Result */
+
+.result-card {
+    border: 0;
+    border-left: 5px solid #198754;
+    background-color: #e9f7ef;
+}
+
+
+/* Images */
+
+.model-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.confusion-matrix {
+    max-width: 650px;
+    width: 100%;
+    height: auto;
+}
+
+
+/* Code */
+
+.code-block {
+    background-color: #212529;
+    color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.25rem;
+    overflow-x: auto;
+    font-family: Consolas, monospace;
+    font-size: 0.9rem;
+}
+
+
+/* Submenus */
 
 .dropdown-submenu {
     position: relative;
 }
 
 .dropdown-submenu > .dropdown-menu {
-    top: 0;
-    left: 30%;
-    margin-top: -1px;
+    top: -1px;
+    left: auto;
+    right: 100%;
+    margin-right: 4px;
+    margin-top: 0;
 }
 
 .dropdown-submenu > .dropdown-menu.show {
@@ -57,9 +263,57 @@ body {
     .dropdown-submenu > .dropdown-menu {
         position: static;
         margin-left: 15px;
+        margin-right: 0;
         margin-top: 0;
         border: none;
         box-shadow: none;
+    }
+
+}
+
+
+/* Dark Sections */
+
+.bg-dark {
+    background-color: #212529 !important;
+}
+
+.bg-dark .card {
+    color: #212529;
+}
+
+
+/* Responsive */
+
+@media (max-width: 991.98px) {
+
+    .page-hero {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    h1.display-5 {
+        font-size: 2.5rem;
+    }
+
+}
+
+@media (max-width: 575.98px) {
+
+    h1.display-5 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .card-body {
+        padding: 1.25rem !important;
+    }
+
+    .metric-value {
+        font-size: 2rem;
     }
 
 }

@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>
-        {% block title %}
+       
         Machine Learning Lab
-        {% endblock %}
+        
     </title>
 
     <!-- Bootstrap -->
@@ -194,71 +194,143 @@
                     </li>
 
 
-                    <!-- Supervised Learning -->
+                <!-- Supervised Learning -->
+                <li class="nav-item dropdown">
 
-                    <li class="nav-item dropdown">
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                    >
+                        Supervised
+                    </a>
 
-                        <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                        >
-                            Supervised
-                        </a>
+                    <ul class="dropdown-menu">
 
-                        <ul class="dropdown-menu">
+                        <!-- Linear Regression -->
+                        <li class="dropdown-submenu">
 
-                            <!-- Linear Regression -->
+                            <a
+                                class="dropdown-item dropdown-toggle"
+                                href="#"
+                            >
+                                Linear Regression
+                            </a>
 
-                            <li class="dropdown-submenu">
+                            <ul class="dropdown-menu">
 
-                                <a
-                                    class="dropdown-item dropdown-toggle"
-                                    href="#"
-                                >
-                                    Linear Regression
-                                </a>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="{{ url_for('regression_concepts') }}"
+                                    >
+                                        Concepts
+                                    </a>
+                                </li>
 
-                                <ul class="dropdown-menu">
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="{{ url_for('regression_application') }}"
+                                    >
+                                        Application
+                                    </a>
+                                </li>
 
-                                    <!-- Concepts -->
+                            </ul>
 
-                                    <li>
-
-                                        <a
-                                            class="dropdown-item"
-                                            href="{{ url_for('regression_concepts') }}"
-                                        >
-                                            Concepts
-                                        </a>
-
-                                    </li>
-
-
-                                    <!-- Application -->
-
-                                    <li>
-
-                                        <a
-                                            class="dropdown-item"
-                                            href="{{ url_for('regression_application') }}"
-                                        >
-                                            Application
-                                        </a>
-
-                                    </li>
-
-                                </ul>
-
-                            </li>
-
-                        </ul>
-
-                    </li>
+                        </li>
 
 
-                </ul>
+                        <!-- Logistic Regression -->
+                        <li class="dropdown-submenu">
+
+                            <a
+                                class="dropdown-item dropdown-toggle"
+                                href="#"
+                            >
+                                Logistic Regression
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="{{ url_for('logistic_regression_concepts') }}"
+                                    >
+                                        Concepts
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="{{ url_for('logistic_regression_application') }}"
+                                    >
+                                        Application
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="{{ url_for('logistic_regression_evaluation') }}"
+                                    >
+                                        Evaluation Metrics
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- Gradient Boosting Classifier -->
+                        <li class="dropdown-submenu">
+
+                            <a
+                                class="dropdown-item dropdown-toggle"
+                                href="#"
+                            >
+                                Gradient Boosting Classifier
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="{{ url_for('gradient_boosting_concepts') }}"
+                                    >
+                                        Concepts
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="{{ url_for('gradient_boosting_application') }}">
+                                        Application
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="{{ url_for('gradient_boosting_evaluation') }}">
+                                        Evaluation Metrics
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+                </li>
+
+    </ul>
+
+</li>
 
             </div>
 
