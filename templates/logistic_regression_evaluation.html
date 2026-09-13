@@ -1,0 +1,391 @@
+{% extends "base.html" %}
+
+{% block title %}
+Logistic Regression Evaluation Metrics
+{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <span class="badge bg-success mb-3">
+                    LOGISTIC REGRESSION
+                </span>
+
+                <h1 class="display-5 fw-bold">
+                    Logistic Regression Evaluation
+                </h1>
+
+                <p class="lead text-muted mt-3">
+                    Measuring the performance of the binary classification
+                    model.
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+
+                <div class="display-1">
+                    📊
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Overview -->
+
+<section class="container py-5">
+
+    <div class="row g-4">
+
+        <div class="col-lg-8">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-success mb-3">
+                        EVALUATION 01
+                    </span>
+
+                    <h2 class="fw-bold">
+                        Evaluation Overview
+                    </h2>
+
+                    <p class="text-muted mt-3 mb-0">
+                        The Logistic Regression model was evaluated using
+                        <strong>400 testing records</strong>, representing
+                        20% of the complete dataset.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h4 class="fw-bold">
+                        Test Records
+                    </h4>
+
+                    <div class="key-idea mt-3">
+
+                        <h3 class="fw-bold">
+                            400
+                        </h3>
+
+                        <p class="text-muted mb-0">
+                            Testing records
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Metrics -->
+
+<section class="container pb-5">
+
+    <div class="text-center mb-4">
+
+        <span class="badge bg-primary">
+            EVALUATION 02
+        </span>
+
+        <h2 class="fw-bold mt-3">
+            Classification Metrics
+        </h2>
+
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-3">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4 text-center">
+
+                    <h5 class="fw-bold">
+                        Accuracy
+                    </h5>
+
+                    <div class="display-6 text-primary fw-bold mt-3">
+                        {{ "%.2f"|format(accuracy * 100) }}%
+                    </div>
+
+                    <p class="text-muted mt-3 mb-0">
+                        Overall correct classifications.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4 text-center">
+
+                    <h5 class="fw-bold">
+                        Precision
+                    </h5>
+
+                    <div class="display-6 text-primary fw-bold mt-3">
+                        {{ "%.2f"|format(precision * 100) }}%
+                    </div>
+
+                    <p class="text-muted mt-3 mb-0">
+                        Correct positive predictions.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4 text-center">
+
+                    <h5 class="fw-bold">
+                        Recall
+                    </h5>
+
+                    <div class="display-6 text-primary fw-bold mt-3">
+                        {{ "%.2f"|format(recall * 100) }}%
+                    </div>
+
+                    <p class="text-muted mt-3 mb-0">
+                        Correctly identified positive cases.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4 text-center">
+
+                    <h5 class="fw-bold">
+                        F1-score
+                    </h5>
+
+                    <div class="display-6 text-primary fw-bold mt-3">
+                        {{ "%.2f"|format(f1 * 100) }}%
+                    </div>
+
+                    <p class="text-muted mt-3 mb-0">
+                        Balance between Precision and Recall.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Confusion Matrix -->
+
+<section class="py-5 bg-dark text-white">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success">
+                EVALUATION 03
+            </span>
+
+            <h2 class="fw-bold mt-3 text-white">
+                Confusion Matrix
+            </h2>
+
+            <p class="text-white-50">
+                Correct and incorrect predictions for the two price
+                categories.
+            </p>
+
+        </div>
+
+        <div class="card bg-light border-0 shadow-sm">
+
+            <div class="card-body p-4 text-center">
+
+                <img
+                    src="{{ url_for(
+                        'static',
+                        filename='logistic_confusion_matrix.png'
+                    ) }}"
+                    class="confusion-matrix"
+                    alt="Logistic Regression Confusion Matrix"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Interpretation -->
+
+<section class="container py-5">
+
+    <div class="card border-0 shadow-sm">
+
+        <div class="card-body p-4 p-lg-5">
+
+            <span class="badge bg-warning text-dark mb-3">
+                EVALUATION 04
+            </span>
+
+            <h2 class="fw-bold">
+                Confusion Matrix Interpretation
+            </h2>
+
+            <p class="text-muted mt-3">
+                The confusion matrix compares the actual classes with
+                the classes predicted by the Logistic Regression model.
+            </p>
+
+            <div class="table-responsive mt-4">
+
+                <table class="table table-bordered">
+
+                    <thead class="table-light">
+
+                        <tr>
+                            <th>Term</th>
+                            <th>Meaning</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <strong>True Negative (TN)</strong>
+                            </td>
+
+                            <td>
+                                Low Price properties correctly classified
+                                as Low Price.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>False Positive (FP)</strong>
+                            </td>
+
+                            <td>
+                                Low Price properties incorrectly classified
+                                as High Price.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>False Negative (FN)</strong>
+                            </td>
+
+                            <td>
+                                High Price properties incorrectly
+                                classified as Low Price.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>True Positive (TP)</strong>
+                            </td>
+
+                            <td>
+                                High Price properties correctly classified
+                                as High Price.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Summary -->
+
+<section class="container pb-5">
+
+    <div class="alert alert-success border-0 shadow-sm p-4">
+
+        <h4 class="fw-bold">
+            Key Takeaway
+        </h4>
+
+        <p class="mb-0">
+            Accuracy, Precision, Recall, F1-score, and the Confusion
+            Matrix provide complementary information about the
+            classification performance of Logistic Regression.
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}
