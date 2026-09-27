@@ -1,0 +1,569 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- PAGE HERO -->
+<section class="container modern-container">
+
+    <div class="ml-page-hero">
+
+        <div class="ml-page-hero-content">
+
+            <span class="section-badge">
+                MACHINE LEARNING
+            </span>
+
+            <h1>
+                Unsupervised Machine Learning
+            </h1>
+
+            <p>
+                Understanding clustering, K-Means, and unsupervised
+                learning through student performance analysis.
+            </p>
+
+        </div>
+
+        <div class="ml-page-hero-icon">
+            🤖
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MAIN CONTENT -->
+<div class="container modern-container">
+
+
+    <!-- CONCEPT 01 -->
+    <div class="concept-layout">
+
+        <div class="section concept-main">
+
+            <span class="section-badge">
+                CONCEPT 01
+            </span>
+
+            <h2>
+                What is Unsupervised Machine Learning?
+            </h2>
+
+            <p>
+                Unsupervised Machine Learning is a branch of Machine
+                Learning where algorithms analyze datasets without a
+                predefined target variable.
+            </p>
+
+            <p>
+                The objective is to discover hidden structures,
+                relationships, or patterns within the data.
+            </p>
+
+            <p>
+                Unlike supervised learning, the algorithm does not
+                receive previously labeled classes. Instead, it
+                identifies groups or structures based on similarities
+                between observations.
+            </p>
+
+        </div>
+
+
+        <div class="section concept-side">
+
+            <h3>
+                Key Idea
+            </h3>
+
+            <p>
+                The algorithm explores the data and discovers
+                meaningful structures without predefined labels.
+            </p>
+
+            <div class="concept-highlight">
+                Data → Patterns → Clusters
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONCEPT 02 -->
+    <div class="section">
+
+        <span class="section-badge">
+            CONCEPT 02
+        </span>
+
+        <h2>
+            What is Clustering?
+        </h2>
+
+        <p>
+            Clustering is an unsupervised learning technique used
+            to group observations according to their similarity.
+        </p>
+
+        <p>
+            Each group is called a cluster. Observations within the
+            same cluster should have similar characteristics, while
+            observations belonging to different clusters should be
+            more dissimilar.
+        </p>
+
+
+        <div class="cards">
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    01
+                </span>
+
+                <h3>
+                    Similarity
+                </h3>
+
+                <p>
+                    Observations are grouped according to similarities
+                    between their numerical characteristics.
+                </p>
+
+            </div>
+
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    02
+                </span>
+
+                <h3>
+                    No Target Variable
+                </h3>
+
+                <p>
+                    The algorithm works without a predefined target
+                    or class label.
+                </p>
+
+            </div>
+
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    03
+                </span>
+
+                <h3>
+                    Pattern Discovery
+                </h3>
+
+                <p>
+                    The objective is to identify hidden structures
+                    and meaningful groups within the dataset.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- K-MEANS -->
+    <div class="section">
+
+        <span class="section-badge">
+            CONCEPT 03
+        </span>
+
+        <h2>
+            K-Means Clustering Algorithm
+        </h2>
+
+        <p>
+            K-Means is a clustering algorithm that divides observations
+            into a predefined number of groups called K clusters.
+        </p>
+
+        <p>
+            In this workshop, K-Means is used to identify groups of
+            students according to their academic performance and
+            interaction with the Virtual Learning Environment.
+        </p>
+
+
+        <div class="cards">
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    01
+                </span>
+
+                <h3>
+                    Select K
+                </h3>
+
+                <p>
+                    Define the number of clusters that the algorithm
+                    must generate.
+                </p>
+
+            </div>
+
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    02
+                </span>
+
+                <h3>
+                    Initialize Centroids
+                </h3>
+
+                <p>
+                    Initial centroid coordinates are selected as the
+                    starting points of each cluster.
+                </p>
+
+            </div>
+
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    03
+                </span>
+
+                <h3>
+                    Calculate Distances
+                </h3>
+
+                <p>
+                    Euclidean distance is calculated between each
+                    observation and every centroid.
+                </p>
+
+            </div>
+
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    04
+                </span>
+
+                <h3>
+                    Assign Clusters
+                </h3>
+
+                <p>
+                    Each observation is assigned to the nearest
+                    centroid.
+                </p>
+
+            </div>
+
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    05
+                </span>
+
+                <h3>
+                    Update Centroids
+                </h3>
+
+                <p>
+                    New centroid coordinates are calculated using
+                    the observations assigned to each cluster.
+                </p>
+
+            </div>
+
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    06
+                </span>
+
+                <h3>
+                    Repeat
+                </h3>
+
+                <p>
+                    The process continues until the clusters become
+                    stable or the configured number of iterations
+                    is reached.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- EUCLIDEAN DISTANCE -->
+    <div class="concept-layout">
+
+        <div class="section concept-main">
+
+            <span class="section-badge">
+                CONCEPT 04
+            </span>
+
+            <h2>
+                Euclidean Distance
+            </h2>
+
+            <p>
+                K-Means uses Euclidean distance to measure how close
+                an observation is to each centroid.
+            </p>
+
+            <div class="formula-box">
+
+                <p>
+                    d = √((x₁ − c₁)² + (x₂ − c₂)²)
+                </p>
+
+            </div>
+
+            <p>
+                Where <strong>x</strong> represents the observation
+                and <strong>c</strong> represents the centroid.
+            </p>
+
+        </div>
+
+
+        <div class="section concept-side">
+
+            <h3>
+                Why Distance Matters
+            </h3>
+
+            <p>
+                The nearest centroid determines the cluster assigned
+                to each observation during the K-Means process.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CENTROIDS -->
+    <div class="section">
+
+        <span class="section-badge">
+            CONCEPT 05
+        </span>
+
+        <h2>
+            Centroids
+        </h2>
+
+        <p>
+            A centroid represents the center of a cluster. Its
+            coordinates are calculated from the mean values of the
+            observations assigned to that cluster.
+        </p>
+
+        <p>
+            During each K-Means iteration, centroid positions can
+            change as observations are reassigned to different
+            clusters.
+        </p>
+
+    </div>
+
+
+    <!-- STANDARDIZATION -->
+    <div class="section">
+
+        <span class="section-badge">
+            CONCEPT 06
+        </span>
+
+        <h2>
+            Feature Standardization
+        </h2>
+
+        <p>
+            The student performance application uses two numerical
+            variables: Average Assessment Score and Total VLE Clicks.
+        </p>
+
+        <p>
+            Because these variables have significantly different
+            numerical scales, StandardScaler is applied before
+            training the K-Means model.
+        </p>
+
+
+        <div class="code-box">
+
+<pre><code>from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+
+X_scaled = scaler.fit_transform(X)</code></pre>
+
+        </div>
+
+        <p>
+            Standardization prevents the variable with the larger
+            numerical scale from dominating the distance calculations
+            used by K-Means.
+        </p>
+
+    </div>
+
+
+    <!-- SILHOUETTE SCORE -->
+    <div class="concept-layout">
+
+        <div class="section concept-main">
+
+            <span class="section-badge">
+                CONCEPT 07
+            </span>
+
+            <h2>
+                Silhouette Score
+            </h2>
+
+            <p>
+                The Silhouette Score evaluates how well observations
+                fit within their assigned clusters compared with
+                other clusters.
+            </p>
+
+            <p>
+                Its value ranges from -1 to 1. Higher values generally
+                indicate better separation between clusters and greater
+                similarity among observations within the same cluster.
+            </p>
+
+        </div>
+
+
+        <div class="section concept-side metric-card">
+
+            <h3>
+                Project Result
+            </h3>
+
+            <div class="metric-value">
+                0.4599
+            </div>
+
+            <p>
+                Silhouette Score obtained by the student performance
+                clustering application.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- APPLICATIONS -->
+    <div class="section">
+
+        <span class="section-badge">
+            APPLICATIONS
+        </span>
+
+        <h2>
+            Applications of Unsupervised Learning
+        </h2>
+
+        <div class="cards">
+
+            <div class="modern-card">
+
+                <h3>
+                    Education
+                </h3>
+
+                <p>
+                    Identify groups of students according to academic
+                    performance and learning activity.
+                </p>
+
+            </div>
+
+
+            <div class="modern-card">
+
+                <h3>
+                    Marketing
+                </h3>
+
+                <p>
+                    Group customers according to purchasing behavior
+                    and other characteristics.
+                </p>
+
+            </div>
+
+
+            <div class="modern-card">
+
+                <h3>
+                    Business Analytics
+                </h3>
+
+                <p>
+                    Discover patterns in organizational and operational
+                    datasets.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PROJECT CONNECTION -->
+    <div class="section project-connection">
+
+        <span class="section-badge">
+            THIS PROJECT
+        </span>
+
+        <h2>
+            Application in This Project
+        </h2>
+
+        <p>
+            The Unsupervised Machine Learning module applies K-Means
+            clustering to a real student performance dataset obtained
+            from the Open University Learning Analytics Dataset (OULAD).
+        </p>
+
+        <p>
+            The clustering process uses Average Assessment Score and
+            Total VLE Clicks to identify groups of students with similar
+            academic performance and learning activity patterns.
+        </p>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

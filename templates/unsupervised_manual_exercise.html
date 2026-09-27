@@ -1,0 +1,978 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="modern-container">
+
+    <!-- ==========================================
+         PAGE HEADER
+         ========================================== -->
+
+    <section class="ml-page-hero">
+
+        <div class="ml-page-hero-content">
+
+            <div class="section-badge">
+                UNSUPERVISED MACHINE LEARNING
+            </div>
+
+            <h1>
+                Manual K-Means Exercise
+            </h1>
+
+            <p>
+                Manual simulation of the K-Means clustering algorithm
+                using a student performance dataset.
+            </p>
+
+        </div>
+
+<div class="ml-page-hero-icon">
+    🤖
+</div>
+
+    </section>
+
+
+  <!-- ==========================================
+     EXERCISE OVERVIEW
+     ========================================== -->
+
+<section class="section">
+
+    <span class="section-badge">
+        EXERCISE OVERVIEW
+    </span>
+
+    <h2>
+        Exercise Overview
+    </h2>
+
+
+    <!-- Main Explanation -->
+
+    <div class="concept-main mb-4">
+
+        <p>
+            This manual exercise demonstrates how the K-Means
+            clustering algorithm works through three iterations.
+        </p>
+
+        <p>
+            The dataset contains <strong>100 student records</strong>
+            and two numerical variables:
+            <strong>Study Hours</strong> and
+            <strong>Exam Score</strong>.
+        </p>
+
+        <div class="concept-highlight">
+            The objective is to group students according to
+            similarities between their study time and exam performance.
+        </div>
+
+    </div>
+
+
+    <!-- K-Means Process -->
+
+    <div class="concept-main">
+
+        <h3>
+            K-Means Process
+        </h3>
+
+        <p>
+            The algorithm repeatedly assigns students to the
+            nearest centroid and updates the centroid positions.
+        </p>
+
+
+        <div class="cards">
+
+            <!-- Assign -->
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    01
+                </span>
+
+                <h3>
+                    Assign
+                </h3>
+
+                <p>
+                    Calculate distances and assign each student
+                    to the nearest centroid.
+                </p>
+
+            </div>
+
+
+            <!-- Update -->
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    02
+                </span>
+
+                <h3>
+                    Update
+                </h3>
+
+                <p>
+                    Calculate new centroid positions using
+                    the assigned students.
+                </p>
+
+            </div>
+
+
+            <!-- Repeat -->
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    03
+                </span>
+
+                <h3>
+                    Repeat
+                </h3>
+
+                <p>
+                    Repeat the process and compare the final
+                    cluster configuration.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- ==========================================
+         DATASET INFORMATION
+         ========================================== -->
+
+    <section class="section">
+
+        <span class="section-badge">
+            DATASET
+        </span>
+
+        <h2>
+            Dataset Information
+        </h2>
+
+        <div class="cards">
+
+            <div class="modern-card metric-card text-center">
+
+                <span class="card-number mx-auto">
+                    01
+                </span>
+
+                <div class="metric-value">
+                    100
+                </div>
+
+                <p>
+                    Student Records
+                </p>
+
+            </div>
+
+
+            <div class="modern-card metric-card text-center">
+
+                <span class="card-number mx-auto">
+                    02
+                </span>
+
+                <div class="metric-value">
+                    2
+                </div>
+
+                <p>
+                    Numerical Variables
+                </p>
+
+            </div>
+
+
+            <div class="modern-card metric-card text-center">
+
+                <span class="card-number mx-auto">
+                    03
+                </span>
+
+                <div class="metric-value">
+                    3
+                </div>
+
+                <p>
+                    Clusters
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         VARIABLES
+         ========================================== -->
+
+    <section class="section">
+
+        <span class="section-badge">
+            DATASET VARIABLES
+        </span>
+
+        <h2>
+            Variables
+        </h2>
+
+        <div class="modern-card">
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover mb-0">
+
+                    <thead class="table-light">
+
+                        <tr>
+                            <th>Variable</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                <strong>Study_Hours</strong>
+                            </td>
+
+                            <td>
+                                Number of hours dedicated to studying.
+                            </td>
+
+                            <td>
+                                Numerical
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <strong>Exam_Score</strong>
+                            </td>
+
+                            <td>
+                                Student examination score.
+                            </td>
+
+                            <td>
+                                Numerical
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         INITIAL CENTROIDS
+         ========================================== -->
+
+    <section class="section">
+
+        <span class="section-badge">
+            INITIAL CONFIGURATION
+        </span>
+
+        <h2>
+            Initial Centroids
+        </h2>
+
+        <div class="concept-layout">
+
+            <div class="concept-main">
+
+                <h3>
+                    Starting Points
+                </h3>
+
+                <p>
+                    Three initial centroids are selected to start the
+                    K-Means algorithm.
+                </p>
+
+                <div class="concept-highlight">
+                    Each student will be compared against these three
+                    initial centroid positions.
+                </div>
+
+            </div>
+
+            <div class="concept-side">
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered table-hover mb-0">
+
+                        <thead class="table-light">
+
+                            <tr>
+                                <th>Cluster</th>
+                                <th>Study Hours</th>
+                                <th>Exam Score</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    Cluster 0
+                                </td>
+
+                                <td>
+                                    3.0
+                                </td>
+
+                                <td>
+                                    45.0
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    Cluster 1
+                                </td>
+
+                                <td>
+                                    7.0
+                                </td>
+
+                                <td>
+                                    70.0
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    Cluster 2
+                                </td>
+
+                                <td>
+                                    11.0
+                                </td>
+
+                                <td>
+                                    90.0
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         EUCLIDEAN DISTANCE
+         ========================================== -->
+
+    <section class="section">
+
+        <span class="section-badge">
+            DISTANCE CALCULATION
+        </span>
+
+        <h2>
+            Euclidean Distance
+        </h2>
+
+        <div class="concept-layout">
+
+            <div class="concept-main">
+
+                <h3>
+                    Distance Calculation
+                </h3>
+
+                <p>
+                    For each student, the Euclidean distance to each centroid
+                    is calculated.
+                </p>
+
+                <div class="formula-box">
+
+                    <p>
+                        d = √[(x₁ - c₁)² + (x₂ - c₂)²]
+                    </p>
+
+                </div>
+
+                <div class="concept-highlight">
+
+                    Each student is assigned to the cluster whose centroid
+                    has the smallest distance.
+
+                </div>
+
+            </div>
+
+            <div class="concept-side">
+
+                <h3>
+                    Assignment Rule
+                </h3>
+
+                <p>
+                    The calculated distances determine which centroid
+                    is closest to each student.
+                </p>
+
+                <p class="mb-0">
+                    The smallest distance determines the assigned cluster.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         ITERATION PROCESS
+         ========================================== -->
+
+    <section class="section">
+
+        <span class="section-badge">
+            K-MEANS PROCESS
+        </span>
+
+        <h2>
+            K-Means Iterations
+        </h2>
+
+        <div class="cards">
+
+            <!-- Iteration 1 -->
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    01
+                </span>
+
+                <h3>
+                    Iteration 1
+                </h3>
+
+                <p>
+                    Calculate the distance from every student
+                    to the three initial centroids.
+                </p>
+
+                <p class="mb-0">
+                    Assign each student to the nearest centroid.
+                </p>
+
+            </div>
+
+
+            <!-- Iteration 2 -->
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    02
+                </span>
+
+                <h3>
+                    Iteration 2
+                </h3>
+
+                <p>
+                    Calculate new centroid positions using the
+                    students assigned to each cluster.
+                </p>
+
+                <p class="mb-0">
+                    Recalculate distances and update assignments.
+                </p>
+
+            </div>
+
+
+            <!-- Iteration 3 -->
+
+            <div class="modern-card">
+
+                <span class="card-number">
+                    03
+                </span>
+
+                <h3>
+                    Iteration 3
+                </h3>
+
+                <p>
+                    Repeat the distance and centroid calculations
+                    using the updated cluster positions.
+                </p>
+
+                <p class="mb-0">
+                    Compare the final cluster configuration.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         MANUAL K-MEANS RESULTS
+         ========================================== -->
+
+    <section class="section">
+
+        <span class="section-badge">
+            MANUAL RESULTS
+        </span>
+
+        <h2>
+            Manual K-Means Results
+        </h2>
+
+
+        {% for iteration in manual_iterations %}
+
+        <div class="modern-card mb-5">
+
+            <div class="d-flex align-items-center gap-3 mb-4">
+
+                <span class="card-number">
+                    {{ iteration.iteration }}
+                </span>
+
+                <div>
+
+                    <h3 class="mb-1">
+                        Iteration {{ iteration.iteration }}
+                    </h3>
+
+                    <p class="mb-0 text-muted">
+                        Distance calculation, cluster assignment,
+                        centroid update and variance analysis.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="concept-highlight mb-4">
+
+                The distances between each student and the three
+                centroids were calculated using Euclidean distance.
+                Each student was assigned to the nearest centroid.
+
+            </div>
+
+
+            <!-- Updated Centroids -->
+
+            <h4 class="fw-bold mt-4 mb-3">
+                Updated Centroids
+            </h4>
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover">
+
+                    <thead class="table-light">
+
+                        <tr>
+                            <th>Cluster</th>
+                            <th>Study Hours</th>
+                            <th>Exam Score</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for centroid in iteration.centroids_after %}
+
+                        <tr>
+
+                            <td>
+                                Cluster {{ loop.index0 }}
+                            </td>
+
+                            <td>
+                                {{ "%.4f"|format(centroid[0]) }}
+                            </td>
+
+                            <td>
+                                {{ "%.4f"|format(centroid[1]) }}
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- Within-Cluster Variance -->
+
+            <h4 class="fw-bold mt-5 mb-3">
+                Within-Cluster Variance
+            </h4>
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered">
+
+                    <thead class="table-light">
+
+                        <tr>
+                            <th>Cluster</th>
+                            <th>Variance</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for variance in iteration.cluster_variances %}
+
+                        <tr>
+
+                            <td>
+                                Cluster {{ loop.index0 }}
+                            </td>
+
+                            <td>
+                                {{ "%.4f"|format(variance) }}
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                        <tr class="fw-bold">
+
+                            <td>
+                                Total Variance
+                            </td>
+
+                            <td>
+                                {{ "%.4f"|format(iteration.total_variance) }}
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- Student Cluster Assignments -->
+
+            <h4 class="fw-bold mt-5 mb-3">
+                Student Cluster Assignments
+            </h4>
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover">
+
+                    <thead class="table-light">
+
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Study Hours</th>
+                            <th>Exam Score</th>
+                            <th>Distance C0</th>
+                            <th>Distance C1</th>
+                            <th>Distance C2</th>
+                            <th>Assigned Cluster</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for record in iteration.records %}
+
+                        <tr>
+
+                            <td>
+                                {{ record.Student_ID }}
+                            </td>
+
+                            <td>
+                                {{ "%.2f"|format(record.Study_Hours) }}
+                            </td>
+
+                            <td>
+                                {{ "%.2f"|format(record.Exam_Score) }}
+                            </td>
+
+                            <td>
+                                {{ "%.4f"|format(record.Distance_Cluster_0) }}
+                            </td>
+
+                            <td>
+                                {{ "%.4f"|format(record.Distance_Cluster_1) }}
+                            </td>
+
+                            <td>
+                                {{ "%.4f"|format(record.Distance_Cluster_2) }}
+                            </td>
+
+                            <td>
+                                Cluster {{ record.Assigned_Cluster }}
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </section>
+
+
+    <!-- ==========================================
+         K-MEANS VISUALIZATIONS
+         ========================================== -->
+
+    <section class="section">
+
+        <span class="section-badge">
+            VISUAL ANALYSIS
+        </span>
+
+        <h2>
+            K-Means Visualizations
+        </h2>
+
+        <div class="concept-layout">
+
+            <div class="concept-main">
+
+                <p>
+                    The following graphs show how the student clusters and
+                    centroid positions change during the three manual
+                    K-Means iterations.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Iteration 1 -->
+
+        <div class="modern-card mb-5">
+
+            <div class="d-flex align-items-center gap-3 mb-4">
+
+                <span class="card-number">
+                    01
+                </span>
+
+                <h3 class="mb-0">
+                    Iteration 1
+                </h3>
+
+            </div>
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='student_kmeans_iteration_1.png'
+                ) }}"
+                class="model-image"
+                alt="K-Means Iteration 1"
+            >
+
+        </div>
+
+
+        <!-- Iteration 2 -->
+
+        <div class="modern-card mb-5">
+
+            <div class="d-flex align-items-center gap-3 mb-4">
+
+                <span class="card-number">
+                    02
+                </span>
+
+                <h3 class="mb-0">
+                    Iteration 2
+                </h3>
+
+            </div>
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='student_kmeans_iteration_2.png'
+                ) }}"
+                class="model-image"
+                alt="K-Means Iteration 2"
+            >
+
+        </div>
+
+
+        <!-- Iteration 3 -->
+
+        <div class="modern-card mb-5">
+
+            <div class="d-flex align-items-center gap-3 mb-4">
+
+                <span class="card-number">
+                    03
+                </span>
+
+                <h3 class="mb-0">
+                    Iteration 3
+                </h3>
+
+            </div>
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='student_kmeans_iteration_3.png'
+                ) }}"
+                class="model-image"
+                alt="K-Means Iteration 3"
+            >
+
+        </div>
+
+
+        <!-- Variance Comparison -->
+
+        <div class="modern-card">
+
+            <h3>
+                Within-Cluster Variance
+            </h3>
+
+            <p>
+                The graph below compares the total within-cluster
+                variance across the three iterations.
+            </p>
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='student_kmeans_variance.png'
+                ) }}"
+                class="model-image"
+                alt="Within-Cluster Variance"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         FINAL INTERPRETATION
+         ========================================== -->
+
+    <section class="section">
+
+        <div class="project-connection">
+
+            <span class="section-badge">
+                FINAL INTERPRETATION
+            </span>
+
+            <h2>
+                Final Interpretation
+            </h2>
+
+            <p>
+                The final clusters will represent groups of students
+                with similar study habits and examination performance.
+            </p>
+
+            <p class="mb-0">
+                The evolution of the centroids and the reduction of
+                within-cluster variance will be used to evaluate the
+                convergence of the manual K-Means process.
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

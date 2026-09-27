@@ -317,3 +317,532 @@ section {
     }
 
 }
+/* ==========================================
+   UNSUPERVISED MACHINE LEARNING
+   Custom Project Design
+   ========================================== */
+
+
+/* Main content container */
+
+.modern-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Page Hero */
+
+.ml-page-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+}
+
+.ml-page-hero-content {
+    max-width: 900px;
+}
+
+.ml-page-hero h1 {
+    margin-top: 1.25rem;
+    margin-bottom: 1rem;
+
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.ml-page-hero p {
+    max-width: 900px;
+
+    margin-bottom: 0;
+
+    color: #495057;
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+.ml-page-hero-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 120px;
+    min-height: 120px;
+
+    font-size: 4.5rem;
+
+    border-radius: 24px;
+
+    background-color: #e9f7ef;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Section Badge */
+
+.section-badge {
+    display: inline-block;
+
+    padding: 0.45rem 0.75rem;
+
+    border-radius: 7px;
+
+    background-color: #198754;
+    color: #ffffff;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+}
+
+
+/* Sections */
+
+.section {
+    margin-bottom: 4rem;
+}
+
+.section h2 {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+
+    font-size: 2.25rem;
+    font-weight: 700;
+
+    letter-spacing: -0.4px;
+}
+
+.section h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.section p {
+    color: #495057;
+}
+
+
+/* Two-column Concept Layout */
+
+.concept-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 2fr)
+        minmax(280px, 1fr);
+
+    gap: 1.5rem;
+
+    margin-bottom: 4rem;
+}
+
+.concept-main,
+.concept-side {
+    background-color: #ffffff;
+
+    border-radius: 14px;
+
+    padding: 2rem;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.concept-main {
+    border: 1px solid #eeeeee;
+}
+
+.concept-side {
+    border: 1px solid #eeeeee;
+}
+
+
+/* Concept Highlight */
+
+.concept-highlight {
+    margin-top: 1.5rem;
+
+    padding: 1.25rem;
+
+    border-left: 4px solid #198754;
+
+    border-radius: 8px;
+
+    background-color: #e9f7ef;
+
+    color: #151a21;
+
+    font-weight: 700;
+}
+
+
+/* Modern Cards */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 1.5rem;
+
+    margin-top: 2rem;
+}
+
+.modern-card {
+    height: 100%;
+
+    padding: 1.75rem;
+
+    background-color: #ffffff;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.modern-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.09);
+}
+
+.modern-card h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.modern-card p {
+    margin-bottom: 0;
+
+    color: #495057;
+}
+
+
+/* Card Numbers */
+
+.card-number {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 9px;
+
+    background-color: #e9f7ef;
+    color: #198754;
+
+    font-weight: 700;
+}
+
+
+/* Formula */
+
+.formula-box {
+    margin: 1.75rem 0;
+
+    padding: 1.5rem;
+
+    background-color: #f8f9fa;
+
+    border: 1px solid #dee2e6;
+
+    border-left: 4px solid #198754;
+
+    border-radius: 9px;
+}
+
+.formula-box p {
+    margin: 0;
+
+    color: #151a21;
+
+    font-family: Consolas, monospace;
+
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+
+/* Code Box */
+
+.code-box {
+    margin-top: 1.5rem;
+
+    padding: 1.25rem;
+
+    background-color: #212529;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+
+    overflow-x: auto;
+}
+
+.code-box pre {
+    margin: 0;
+}
+
+.code-box code {
+    color: #f8f9fa;
+
+    font-family: Consolas, monospace;
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+}
+
+
+/* Metric Card */
+
+.metric-card {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.metric-value {
+    margin: 1rem 0;
+
+    color: #198754;
+
+    font-size: 3.2rem;
+
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+/* Project Connection */
+
+.project-connection {
+    padding: 2.5rem;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #e9f7ef 100%
+        );
+
+    border-radius: 14px;
+
+    border: 1px solid #d9eee2;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 991.98px) {
+
+    .ml-page-hero {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
+
+    .ml-page-hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .concept-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 767.98px) {
+
+    .ml-page-hero {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .ml-page-hero-icon {
+        min-width: 90px;
+        min-height: 90px;
+
+        font-size: 3.5rem;
+    }
+
+    .ml-page-hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .section h2 {
+        font-size: 1.9rem;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .concept-main,
+    .concept-side {
+        padding: 1.5rem;
+    }
+
+}
+
+
+@media (max-width: 575.98px) {
+
+    .ml-page-hero {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .ml-page-hero h1 {
+        font-size: 2rem;
+    }
+
+    .ml-page-hero p {
+        font-size: 1rem;
+    }
+
+    .section {
+        margin-bottom: 3rem;
+    }
+
+    .metric-value {
+        font-size: 2.6rem;
+    }
+
+}
+/* ==========================================
+   MANUAL K-MEANS EXERCISE
+   Iteration Cards Layout
+   ========================================== */
+
+.section > .cards {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+}
+
+.section > .cards .modern-card {
+    min-width: 0;
+}
+
+.section > .cards .modern-card p {
+    line-height: 1.7;
+}
+
+@media (max-width: 991.98px) {
+
+    .section > .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 767.98px) {
+
+    .section > .cards {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* ==========================================
+   MANUAL K-MEANS PAGE
+   Layout and Width Adjustment
+   ========================================== */
+
+.modern-container {
+    width: min(1200px, calc(100% - 40px));
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Exercise Overview */
+
+.section .concept-layout {
+    width: 100%;
+}
+
+
+/* K-Means Process */
+
+.section .concept-layout .concept-side .cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.section .concept-layout .concept-side .modern-card {
+    min-width: 0;
+}
+
+.section .concept-layout .concept-side .modern-card h3 {
+    font-size: 1.25rem;
+}
+
+.section .concept-layout .concept-side .modern-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+/* Responsive */
+
+@media (max-width: 991.98px) {
+
+    .modern-container {
+        width: min(100% - 30px, 900px);
+    }
+
+    .section .concept-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 767.98px) {
+
+    .modern-container {
+        width: calc(100% - 24px);
+    }
+
+    .section .concept-layout .concept-side .cards {
+        grid-template-columns: 1fr;
+    }
+
+}

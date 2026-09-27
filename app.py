@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 
 from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import (
     r2_score,
@@ -11,7 +14,8 @@ from sklearn.metrics import (
     precision_score,
     confusion_matrix,
     recall_score,
-    f1_score
+    f1_score,
+    silhouette_score
 )
 
 
@@ -280,7 +284,488 @@ plt.close()
 
 print("Logistic Regression confusion matrix created successfully")
 
+# Manual K-Means Exercise
+
+manual_student_data = pd.read_csv(
+    "data/student_performance_manual_100.csv"
+)
+
+manual_features = manual_student_data[
+    [
+        "Study_Hours",
+        "Exam_Score"
+    ]
+].to_numpy()
+
+# Define the three initial centroids
+
+manual_centroids = np.array([
+    [3.0, 45.0],
+    [7.0, 70.0],
+    [11.0, 90.0]
+])
+
+manual_iterations = []
+
+# Perform three manual K-Means iterations
+
+for iteration in range(1, 4):
+
+    # Calculate Euclidean distances
+
+    distances = np.sqrt(
+        (
+            manual_features[:, np.newaxis, :]
+            - manual_centroids[np.newaxis, :, :]
+        ) ** 2
+    ).sum(axis=2)
+
+    # Assign each student to the nearest centroid
+
+    assignments = np.argmin(
+        distances,
+        axis=1
+    )
+
+    # Calculate updated centroids
+
+    updated_centroids = []
+
+    for cluster in range(3):
+
+        cluster_points = manual_features[
+            assignments == cluster
+        ]
+
+        if len(cluster_points) > 0:
+
+            new_centroid = cluster_points.mean(
+                axis=0
+            )
+
+        else:
+
+            new_centroid = manual_centroids[
+                cluster
+            ]
+
+        updated_centroids.append(
+            new_centroid
+        )
+
+    updated_centroids = np.array(
+        updated_centroids
+    )
+
+    # Calculate within-cluster variance
+
+    cluster_variances = []
+
+    for cluster in range(3):
+
+        cluster_distances = distances[
+            assignments == cluster,
+            cluster
+        ]
+
+        if len(cluster_distances) > 0:
+
+            variance = np.mean(
+                cluster_distances ** 2
+            )
+
+        else:
+
+            variance = 0.0
+
+        cluster_variances.append(
+            variance
+        )
+
+    total_variance = sum(
+        cluster_variances
+    )
+
+    # Store iteration results
+
+    iteration_result = {
+        "iteration": iteration,
+        "distances": distances.copy(),
+        "assignments": assignments.copy(),
+        "centroids_before": manual_centroids.copy(),
+        "centroids_after": updated_centroids.copy(),
+        "cluster_variances": cluster_variances,
+        "total_variance": total_variance
+    }
+
+    manual_iterations.append(
+        iteration_result
+    )
+
+    # Update centroids for the next iteration
+
+    manual_centroids = updated_centroids
+
+
+print("Manual K-Means exercise loaded successfully")
+print("Manual dataset records:", len(manual_student_data))
+
+for result in manual_iterations:
+
+    print(
+        "Iteration:",
+        result["iteration"]
+    )
+
+    print(
+        "Updated centroids:"
+    )
+
+    print(
+        result["centroids_after"]
+    )
+
+    print(
+        "Total within-cluster variance:",
+        result["total_variance"]
+    )
+
+# Activity 3 - Unsupervised Machine Learning
+
+student_data = pd.read_csv(
+    "data/student_performance_1200.csv"
+)
+
+print("Student performance dataset loaded successfully")
+print("Student records:", len(student_data))
+print(student_data.head())
+
+# Select the numerical variables for clustering
+
+X_student = student_data[
+    [
+        "Average_Assessment_Score",
+        "Total_VLE_Clicks"
+    ]
+]
+
+print("Clustering variables selected successfully")
+print("Clustering variables:", list(X_student.columns))
+
+# Standardize the clustering variables
+
+student_scaler = StandardScaler()
+
+X_student_scaled = student_scaler.fit_transform(
+    X_student
+)
+
+print("Clustering variables standardized successfully")
+
+# Configure and train the K-Means model
+
+student_kmeans = KMeans(
+    n_clusters=3,
+    random_state=42,
+    n_init=10
+)
+
+student_clusters = student_kmeans.fit_predict(
+    X_student_scaled
+)
+
+print("K-Means model trained successfully")
+print("Number of clusters:", student_kmeans.n_clusters)
+
+# Calculate clustering evaluation metrics
+
+student_silhouette = silhouette_score(
+    X_student_scaled,
+    student_clusters
+)
+
+student_centroids_scaled = student_kmeans.cluster_centers_
+
+print("Silhouette Score:", student_silhouette)
+print("Scaled cluster centroids:")
+print(student_centroids_scaled)
+
+# Convert centroids back to the original scale
+
+student_centroids = student_scaler.inverse_transform(
+    student_centroids_scaled
+)
+
+print("Cluster centroids in original scale:")
+print(student_centroids)
+
+# Assign cluster labels to the student dataset
+
+student_data["Cluster"] = student_clusters
+
+print("Cluster labels assigned successfully")
+print(student_data.head())
+
+# Create a dataframe with cluster centroid information
+
+student_centroid_table = pd.DataFrame(
+    student_centroids,
+    columns=[
+        "Average_Assessment_Score",
+        "Total_VLE_Clicks"
+    ]
+)
+
+student_centroid_table["Cluster"] = range(
+    len(student_centroid_table)
+)
+
+print("Cluster centroid table created successfully")
+print(student_centroid_table)
+
+# Count students in each cluster
+
+student_cluster_counts = (
+    student_data["Cluster"]
+    .value_counts()
+    .sort_index()
+)
+
+print("Students per cluster:")
+print(student_cluster_counts)
+
+# Create the final cluster summary table
+
+student_cluster_summary = student_centroid_table.copy()
+
+student_cluster_summary["Student_Count"] = (
+    student_cluster_counts.values
+)
+
+student_cluster_summary["Cluster_Percentage"] = (
+    student_cluster_summary["Student_Count"]
+    / len(student_data)
+    * 100
+)
+
+print("Cluster summary table created successfully")
+print(student_cluster_summary)
+
+# Create the K-Means cluster visualization
+
+plt.figure(figsize=(10, 6))
+
+for cluster in sorted(student_data["Cluster"].unique()):
+    cluster_data = student_data[
+        student_data["Cluster"] == cluster
+    ]
+
+    plt.scatter(
+        cluster_data["Average_Assessment_Score"],
+        cluster_data["Total_VLE_Clicks"],
+        label=f"Cluster {cluster}",
+        alpha=0.6
+    )
+
+plt.scatter(
+    student_centroids[:, 0],
+    student_centroids[:, 1],
+    marker="X",
+    s=250,
+    label="Centroids"
+)
+
+plt.xlabel("Average Assessment Score")
+plt.ylabel("Total VLE Clicks")
+plt.title("Student Performance Clusters")
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+
+plt.savefig(
+    "static/student_clusters.png",
+    dpi=300,
+    bbox_inches="tight"
+)
+
+plt.close()
+
+print("Student clustering plot created successfully")
+
 # Routes
+
+# Unsupervised Machine Learning routes
+
+@app.route("/unsupervised/concepts")
+def unsupervised_concepts():
+    return render_template("unsupervised_concepts.html")
+
+
+@app.route("/unsupervised/manual-exercise")
+def unsupervised_manual_exercise():
+
+    manual_records = manual_student_data.to_dict(
+        orient="records"
+    )
+
+    manual_iteration_results = []
+
+    for result in manual_iterations:
+
+        distances = result["distances"]
+
+        iteration_records = []
+
+        for index, record in manual_student_data.iterrows():
+
+            iteration_records.append({
+                "Student_ID": int(record["Student_ID"]),
+                "Study_Hours": float(record["Study_Hours"]),
+                "Exam_Score": float(record["Exam_Score"]),
+                "Distance_Cluster_0": float(
+                    distances[index][0]
+                ),
+                "Distance_Cluster_1": float(
+                    distances[index][1]
+                ),
+                "Distance_Cluster_2": float(
+                    distances[index][2]
+                ),
+                "Assigned_Cluster": int(
+                    result["assignments"][index]
+                )
+            })
+
+        manual_iteration_results.append({
+            "iteration": result["iteration"],
+            "records": iteration_records,
+            "centroids_before": result["centroids_before"].tolist(),
+            "centroids_after": result["centroids_after"].tolist(),
+            "cluster_variances": result["cluster_variances"],
+            "total_variance": result["total_variance"]
+        })
+
+    return render_template(
+        "unsupervised_manual_exercise.html",
+        manual_records=manual_records,
+        manual_iterations=manual_iteration_results
+    )
+
+# Create plots for the manual K-Means iterations
+
+manual_variances = []
+
+for result in manual_iterations:
+
+    iteration = result["iteration"]
+    assignments = result["assignments"]
+    centroids = result["centroids_after"]
+
+    plt.figure(figsize=(10, 6))
+
+    for cluster in range(3):
+
+        cluster_points = manual_features[
+            assignments == cluster
+        ]
+
+        plt.scatter(
+            cluster_points[:, 0],
+            cluster_points[:, 1],
+            label=f"Cluster {cluster}",
+            alpha=0.6
+        )
+
+    plt.scatter(
+        centroids[:, 0],
+        centroids[:, 1],
+        marker="X",
+        s=250,
+        label="Centroids"
+    )
+
+    plt.xlabel("Study Hours")
+    plt.ylabel("Exam Score")
+
+    plt.title(
+        f"Manual K-Means - Iteration {iteration}"
+    )
+
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+
+    plt.savefig(
+        f"static/student_kmeans_iteration_{iteration}.png",
+        dpi=300,
+        bbox_inches="tight"
+    )
+
+    plt.close()
+
+    manual_variances.append(
+        result["total_variance"]
+    )
+
+
+# Create variance comparison plot
+
+plt.figure(figsize=(10, 6))
+
+iterations = [
+    result["iteration"]
+    for result in manual_iterations
+]
+
+plt.plot(
+    iterations,
+    manual_variances,
+    marker="o"
+)
+
+plt.xlabel("Iteration")
+plt.ylabel("Total Within-Cluster Variance")
+
+plt.title(
+    "Within-Cluster Variance Across K-Means Iterations"
+)
+
+plt.xticks(iterations)
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+
+plt.savefig(
+    "static/student_kmeans_variance.png",
+    dpi=300,
+    bbox_inches="tight"
+)
+
+plt.close()
+
+print(
+    "Manual K-Means plots created successfully"
+)
+
+
+# Activity 3 - Unsupervised Machine Learning routes
+
+@app.route("/unsupervised/clustering-application")
+def unsupervised_clustering_application():
+
+    student_records = student_data.to_dict(
+        orient="records"
+    )
+
+    cluster_summary = student_cluster_summary.to_dict(
+        orient="records"
+    )
+
+    return render_template(
+        "clustering_application.html",
+        student_records=student_records,
+        cluster_summary=cluster_summary,
+        silhouette_score=student_silhouette
+    )
 
 @app.route("/")
 def home():
@@ -487,6 +972,8 @@ def logistic_regression_application():
         house_area=house_area,
         error=error
     )
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
