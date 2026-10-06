@@ -20,6 +20,13 @@
         rel="stylesheet"
     >
 
+    <!-- Bootstrap Icons -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
     <!-- Custom CSS -->
 
     <link
@@ -372,11 +379,43 @@
 
                 </li>
 
-    </ul>
+                <!-- Reinforcement Learning -->
+                <li class="nav-item dropdown">
 
-    </ul>
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                    >
+                        Reinforcement Learning
+                    </a>
 
-</li>
+                    <ul class="dropdown-menu dropdown-menu-end">
+
+                        <li>
+                            <a
+                                class="dropdown-item"
+                                href="{{ url_for('reinforcement_concepts') }}"
+                            >
+                                Concepts
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                class="dropdown-item"
+                                href="{{ url_for('reinforcement_application') }}"
+                            >
+                                Application
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                </ul>
 
             </div>
 

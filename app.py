@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import rl_agent
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -973,6 +974,45 @@ def logistic_regression_application():
         error=error
     )
 
+
+# Reinforcement Learning routes
+
+@app.route("/reinforcement/concepts")
+def reinforcement_concepts():
+    return render_template(
+        "reinforcement_concepts.html",
+        grid=rl_agent.grid_view(),
+        rewards=rl_agent.REWARD_TABLE,
+        config=rl_agent.CONFIG,
+        start=rl_agent.START,
+        goal=rl_agent.GOAL
+    )
+
+
+@app.route("/reinforcement/application", methods=["GET", "POST"])
+def reinforcement_application():
+    results = None
+    path = None
+
+    # Training only runs when the Train Agent button sends a POST
+    if request.method == "POST":
+        results = rl_agent.train_agent()
+        path = results["evaluation"]["path"]
+
+    return render_template(
+        "reinforcement_application.html",
+        grid=rl_agent.grid_view(path),
+        counts=rl_agent.count_cells(),
+        rewards=rl_agent.REWARD_TABLE,
+        config_table=rl_agent.CONFIG_TABLE,
+        config=rl_agent.CONFIG,
+        actions=rl_agent.ACTIONS,
+        start=rl_agent.START,
+        goal=rl_agent.GOAL,
+        rows=rl_agent.ROWS,
+        cols=rl_agent.COLS,
+        results=results
+    )
 
 
 if __name__ == "__main__":

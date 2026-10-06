@@ -1,0 +1,712 @@
+{% extends "base.html" %}
+
+{% block title %}
+Reinforcement Learning Application
+{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <span class="badge bg-success mb-3">
+                    REINFORCEMENT LEARNING
+                </span>
+
+                <h1 class="display-5 fw-bold">
+                    Q-Learning Application
+                </h1>
+
+                <p class="lead text-muted mt-3">
+                    A virtual robot learns to cross a
+                    {{ rows }} × {{ cols }} maze with walls and Danger
+                    Zones using Q-Learning and an Epsilon-Greedy
+                    strategy.
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+
+                <i class="bi bi-joystick display-1 text-success"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Environment -->
+
+<section class="container py-5" id="environment">
+
+    <span class="badge bg-success mb-3">
+        STEP 01 · ENVIRONMENT
+    </span>
+
+    <h2 class="fw-bold mb-4">
+        {% if results %}
+        Environment and Learned Path
+        {% else %}
+        The {{ rows }} × {{ cols }} Environment
+        {% endif %}
+    </h2>
+
+    <div class="row g-4">
+
+        <div class="col-lg-7">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    {% include "_rl_grid.html" %}
+
+                    {% if results %}
+
+                    <div class="alert alert-warning mt-4 mb-0">
+
+                        <i class="bi bi-signpost-2-fill me-2"></i>
+
+                        Cells with a <strong>yellow outline</strong>
+                        belong to the path followed by the trained
+                        agent. The small number is the order in which
+                        each cell was visited. The original characters
+                        are kept.
+
+                    </div>
+
+                    {% else %}
+
+                    <div class="alert alert-primary mt-4 mb-0">
+
+                        <i class="bi bi-info-circle-fill me-2"></i>
+
+                        The agent starts at {{ start }} and must reach
+                        the target at {{ goal }}. Press
+                        <strong>Train Agent</strong> below to see the
+                        learned path here.
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-5">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h4 class="fw-bold mb-3">
+                        Visual representation
+                    </h4>
+
+                    <div class="table-responsive">
+
+                        <table class="table table-sm align-middle rl-legend mb-0">
+
+                            <thead>
+                                <tr>
+                                    <th>Character</th>
+                                    <th>Meaning</th>
+                                    <th class="text-end">Count</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td><span class="rl-cell rl-cell-A">A</span></td>
+                                    <td>Agent start position</td>
+                                    <td class="text-end">{{ counts["A"] }}</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="rl-cell rl-cell-T">T</span></td>
+                                    <td>Target</td>
+                                    <td class="text-end">{{ counts["T"] }}</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="rl-cell rl-cell-o">o</span></td>
+                                    <td>Available path</td>
+                                    <td class="text-end">{{ counts["o"] }}</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="rl-cell rl-cell-wall">#</span></td>
+                                    <td>Wall / obstacle</td>
+                                    <td class="text-end">{{ counts["#"] }}</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="rl-cell rl-cell-D">D</span></td>
+                                    <td>Danger Zone</td>
+                                    <td class="text-end">{{ counts["D"] }}</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="rl-cell rl-cell-o rl-cell-path">o</span></td>
+                                    <td>Cell on the learned path</td>
+                                    <td class="text-end text-muted">after training</td>
+                                </tr>
+                            </tbody>
+
+                            <tfoot>
+                                <tr>
+                                    <th colspan="2">Total cells</th>
+                                    <th class="text-end">{{ counts.values()|sum }}</th>
+                                </tr>
+                            </tfoot>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Reward System and Environment Logic -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-7">
+
+                <span class="badge bg-success mb-3">
+                    STEP 02 · REWARD SYSTEM
+                </span>
+
+                <h2 class="fw-bold mb-4">
+                    Rewards and Penalties
+                </h2>
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered shadow-sm">
+
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Event</th>
+                                <th class="text-end">Reward</th>
+                                <th>Why this value</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for item in rewards %}
+                            <tr>
+                                <td>{{ item.event }}</td>
+                                <td class="text-end fw-bold {{ 'text-success' if item.value > 0 else 'text-danger' }}">
+                                    {{ "%+d"|format(item.value) }}
+                                </td>
+                                <td class="text-muted small">{{ item.reason }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-5">
+
+                <span class="badge bg-success mb-3">
+                    STEP 03 · ENVIRONMENT LOGIC
+                </span>
+
+                <h2 class="fw-bold mb-4">
+                    Rules
+                </h2>
+
+                <ul class="list-group shadow-sm">
+
+                    <li class="list-group-item">
+                        <i class="bi bi-arrows-move text-success me-2"></i>
+                        Four actions:
+                        {{ actions|join(", ") }}.
+                    </li>
+
+                    <li class="list-group-item">
+                        <i class="bi bi-bricks text-success me-2"></i>
+                        The agent cannot leave the grid or cross a
+                        <code>#</code>; it stays in the same cell.
+                    </li>
+
+                    <li class="list-group-item">
+                        <i class="bi bi-exclamation-triangle-fill text-danger me-2"></i>
+                        The agent can enter a <code>D</code>, but pays
+                        the penalty.
+                    </li>
+
+                    <li class="list-group-item">
+                        <i class="bi bi-flag-fill text-success me-2"></i>
+                        The episode ends at <code>T</code> or after
+                        {{ config.max_steps }} steps.
+                    </li>
+
+                    <li class="list-group-item">
+                        <i class="bi bi-card-checklist text-success me-2"></i>
+                        Every step returns: next state, cell type,
+                        reward and whether the episode ended.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Q-Learning Process and Parameters -->
+
+<section class="container py-5">
+
+    <div class="row g-4">
+
+        <div class="col-lg-4">
+
+            <span class="badge bg-success mb-3">
+                STEP 04 · Q-LEARNING PROCESS
+            </span>
+
+            <h2 class="fw-bold mb-4">
+                Learning Cycle
+            </h2>
+
+            <div class="d-flex flex-column align-items-stretch text-center gap-1">
+
+                {% for stage in [
+                    "Environment",
+                    "Initial State",
+                    "Action Selection",
+                    "Exploration / Exploitation",
+                    "Environment Interaction",
+                    "Reward",
+                    "Next State",
+                    "Q-value Update",
+                    "Next Action",
+                    "Goal / End of Episode"
+                ] %}
+
+                <div class="rl-flow-step">{{ stage }}</div>
+
+                {% if not loop.last %}
+                <i class="bi bi-arrow-down rl-flow-arrow"></i>
+                {% endif %}
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-8">
+
+            <span class="badge bg-success mb-3">
+                STEP 05 · TRAINING CONFIGURATION
+            </span>
+
+            <h2 class="fw-bold mb-4">
+                Parameters Used
+            </h2>
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered shadow-sm">
+
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Parameter</th>
+                            <th class="text-end">Value</th>
+                            <th>Explanation</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for item in config_table %}
+                        <tr>
+                            <td class="fw-bold">{{ item.name }}</td>
+                            <td class="text-end">{{ item.value }}</td>
+                            <td class="text-muted small">{{ item.reason }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="alert alert-success">
+
+                <i class="bi bi-cpu-fill me-2"></i>
+
+                <strong>Model:</strong> a scikit-learn
+                <code>SGDRegressor</code> estimates Q(s, a).
+                <code>predict()</code> returns the four Q-values of a
+                state and <code>partial_fit()</code> updates the model
+                after every transition with the target
+                <code>r + γ · max Q(s′, a′)</code>. The route is never
+                programmed by hand.
+
+            </div>
+
+            <!-- Train Button -->
+
+            <div class="card border-0 shadow-sm">
+
+                <div class="card-body p-4 text-center">
+
+                    <h4 class="fw-bold">
+                        Train the agent
+                    </h4>
+
+                    <p class="text-muted">
+                        Runs {{ config.episodes }} episodes of
+                        Q-Learning and then evaluates the learned policy
+                        without exploration. It can take several
+                        seconds.
+                    </p>
+
+                    <form
+                        method="POST"
+                        action="{{ url_for('reinforcement_application') }}#results"
+                        id="trainForm"
+                    >
+
+                        <button
+                            type="submit"
+                            class="btn btn-success btn-lg px-5"
+                            id="trainButton"
+                        >
+                            <i class="bi bi-play-fill me-1"></i>
+                            Train Agent
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% if results %}
+
+{% set evaluation = results.evaluation %}
+
+<!-- Training Results -->
+
+<section class="py-5 bg-dark text-white" id="results">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success">
+                STEP 06 · TRAINING RESULTS
+            </span>
+
+            <h2 class="fw-bold mt-3 text-white">
+                Training Results
+            </h2>
+
+            <p class="text-white-50">
+                Generated by the training run that has just finished.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for label, value, icon in [
+                ("Total episodes", results.episodes, "bi-collection-play-fill"),
+                ("Successful episodes", results.successful_episodes, "bi-check-circle-fill"),
+                ("Success percentage", results.success_rate ~ "%", "bi-percent"),
+                ("Average reward per episode", results.average_reward, "bi-graph-up"),
+                ("Final epsilon", results.final_epsilon, "bi-dice-5-fill"),
+                ("Movements in final evaluation", evaluation.movements, "bi-signpost-2-fill"),
+                ("Total reward in final evaluation", evaluation.total_reward, "bi-trophy-fill"),
+                ("Goal reached", "Yes" if evaluation.reached_goal else "No", "bi-flag-fill")
+            ] %}
+
+            <div class="col-6 col-lg-3">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4 text-center">
+
+                        <i class="bi {{ icon }} rl-icon"></i>
+
+                        <div class="fs-2 fw-bold text-success mt-2">
+                            {{ value }}
+                        </div>
+
+                        <p class="text-muted mb-0">
+                            {{ label }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% if evaluation.reached_goal %}
+
+        <div class="alert alert-success mt-4 mb-0">
+
+            <i class="bi bi-check-circle-fill me-2"></i>
+
+            <strong>The trained agent reached the target</strong> in
+            {{ evaluation.movements }} movements, entering
+            {{ evaluation.danger_entries }} Danger Zone(s) and with
+            {{ evaluation.collisions }} collision(s) or invalid
+            move(s). Average reward of the last 100 training episodes:
+            {{ results.average_reward_last_100 }}.
+
+        </div>
+
+        {% else %}
+
+        <div class="alert alert-danger mt-4 mb-0">
+
+            <i class="bi bi-x-circle-fill me-2"></i>
+
+            <strong>The trained agent did not reach the target</strong>
+            within {{ config.max_steps }} steps.
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+<!-- Final Path -->
+
+<section class="container py-5">
+
+    <span class="badge bg-success mb-3">
+        STEP 07 · LEARNED PATH
+    </span>
+
+    <h2 class="fw-bold mb-4">
+        Final Path Found
+    </h2>
+
+    <div class="card border-0 shadow-sm">
+
+        <div class="card-body p-4">
+
+            <p class="mb-2 font-monospace">
+                {% for cell in evaluation.path %}{{ cell }}{% if not loop.last %} → {% endif %}{% endfor %}
+            </p>
+
+            <a href="#environment" class="small">
+                <i class="bi bi-arrow-up-circle me-1"></i>
+                See it highlighted on the grid above
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Step-by-Step Evaluation -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <span class="badge bg-success mb-3">
+            STEP 08 · EVALUATION WITHOUT EXPLORATION
+        </span>
+
+        <h2 class="fw-bold mb-3">
+            Step-by-Step Evaluation
+        </h2>
+
+        <p class="text-muted">
+            With ε = 0 the agent always takes the action with the
+            highest Q-value.
+        </p>
+
+        <div class="table-responsive">
+
+            <table class="table table-striped table-bordered shadow-sm text-center">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>Step</th>
+                        <th>State</th>
+                        <th>Action</th>
+                        <th>Next State</th>
+                        <th>Cell Type</th>
+                        <th>Reward</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for item in evaluation.steps %}
+                    <tr>
+                        <td>{{ item.step }}</td>
+                        <td>{{ item.state }}</td>
+                        <td>{{ item.action }}</td>
+                        <td>{{ item.next_state }}</td>
+                        <td>
+                            <span class="badge
+                                {% if item.cell_type == 'Target' %}bg-success
+                                {% elif item.cell_type == 'Danger Zone' %}bg-danger
+                                {% elif item.cell_type in ['Wall', 'Out of bounds'] %}bg-dark
+                                {% else %}bg-secondary{% endif %}">
+                                {{ item.cell_type }}
+                            </span>
+                        </td>
+                        <td class="fw-bold {{ 'text-success' if item.reward > 0 else 'text-danger' }}">
+                            {{ "%+d"|format(item.reward) }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th colspan="5" class="text-end">Total reward</th>
+                        <th>{{ "%+d"|format(evaluation.total_reward) }}</th>
+                    </tr>
+                </tfoot>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Q-Values -->
+
+<section class="container py-5">
+
+    <span class="badge bg-success mb-3">
+        STEP 09 · Q-VALUES
+    </span>
+
+    <h2 class="fw-bold mb-3">
+        Learned Q-Values
+    </h2>
+
+    <p class="text-muted">
+        Values predicted by the trained model for each valid state
+        ({{ results.q_table|length }} non-wall cells). The highlighted
+        value is the action the agent would choose. States the agent
+        rarely visited keep values close to 0.
+    </p>
+
+    <div class="table-responsive rl-q-table shadow-sm">
+
+        <table class="table table-sm table-bordered text-center mb-0">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>State</th>
+                    <th>Cell</th>
+                    {% for action in actions %}
+                    <th>{{ action }}</th>
+                    {% endfor %}
+                    <th>Best action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for row in results.q_table %}
+                <tr>
+                    <td>{{ row.state }}</td>
+                    <td class="font-monospace">{{ row.cell }}</td>
+                    {% if row.cell == "T" %}
+                    <td colspan="5" class="text-muted">
+                        Terminal state — the episode ends here
+                    </td>
+                    {% else %}
+                    {% for value in row["values"] %}
+                    <td class="{{ 'rl-q-best' if loop.index0 == row.best_index }}">
+                        {{ "%.2f"|format(value) }}
+                    </td>
+                    {% endfor %}
+                    <td>{{ row.best }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+
+<script>
+
+    document.getElementById("trainForm").addEventListener(
+        "submit",
+        function () {
+
+            const button = document.getElementById("trainButton");
+
+            button.disabled = true;
+
+            button.innerHTML =
+                '<span class="spinner-border spinner-border-sm me-2"></span>' +
+                "Training…";
+
+        }
+    );
+
+</script>
+
+{% endblock %}

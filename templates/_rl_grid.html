@@ -1,0 +1,32 @@
+{# Grid world rendering shared by the Reinforcement Learning pages #}
+
+<div class="rl-grid-wrapper">
+
+    <div class="rl-grid">
+
+        <div class="rl-axis"></div>
+
+        {% for c in range(grid[0]|length) %}
+        <div class="rl-axis">{{ c }}</div>
+        {% endfor %}
+
+        {% for row in grid %}
+
+        <div class="rl-axis">{{ loop.index0 }}</div>
+
+        {% for cell in row %}
+        <div
+            class="rl-cell rl-cell-{{ 'wall' if cell.symbol == '#' else cell.symbol }}{% if cell.on_path %} rl-cell-path{% endif %}"
+        >
+            {{ cell.symbol }}
+            {% if cell.on_path %}
+            <span class="rl-step-number">{{ cell.order }}</span>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        {% endfor %}
+
+    </div>
+
+</div>
