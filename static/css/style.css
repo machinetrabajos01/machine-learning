@@ -846,3 +846,130 @@ section {
     }
 
 }
+/* ==========================================
+   REINFORCEMENT LEARNING
+   Grid World
+   ========================================== */
+
+.rl-grid {
+    display: inline-grid;
+    grid-template-columns: 1.6rem repeat(10, minmax(1.7rem, 2.9rem));
+    gap: 4px;
+    font-family: Consolas, monospace;
+}
+
+.rl-grid-wrapper {
+    overflow-x: auto;
+    text-align: center;
+}
+
+.rl-axis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-size: 0.75rem;
+}
+
+.rl-cell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    border-radius: 7px;
+    border: 1px solid #dee2e6;
+    background-color: #ffffff;
+    color: #adb5bd;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.rl-cell-A {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #ffffff;
+}
+
+.rl-cell-T {
+    background-color: #198754;
+    border-color: #198754;
+    color: #ffffff;
+}
+
+.rl-cell-wall {
+    background-color: #212529;
+    border-color: #212529;
+    color: #ffffff;
+}
+
+.rl-cell-D {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #b02a37;
+}
+
+/* Learned path: highlighted without replacing the character */
+
+.rl-cell-path {
+    outline: 3px solid #ffc107;
+    outline-offset: -1px;
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.35);
+}
+
+.rl-cell-o.rl-cell-path {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+
+.rl-step-number {
+    position: absolute;
+    top: 1px;
+    right: 3px;
+    font-size: 0.55rem;
+    font-weight: 600;
+    opacity: 0.75;
+}
+
+.rl-legend .rl-cell {
+    display: inline-flex;
+    width: 1.9rem;
+    margin-right: 0.5rem;
+    font-family: Consolas, monospace;
+}
+
+.rl-flow-step {
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-left: 4px solid #198754;
+    font-weight: 600;
+}
+
+.rl-flow-arrow {
+    color: #198754;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.rl-icon {
+    font-size: 1.8rem;
+    color: #198754;
+}
+
+.rl-q-table {
+    max-height: 520px;
+    overflow-y: auto;
+}
+
+.rl-q-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.rl-q-best {
+    background-color: #d1e7dd !important;
+    font-weight: 700;
+}
