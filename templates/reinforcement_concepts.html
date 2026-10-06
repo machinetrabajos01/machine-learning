@@ -1,0 +1,764 @@
+{% extends "base.html" %}
+
+{% block title %}
+Reinforcement Learning Concepts
+{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <span class="badge bg-success mb-3">
+                    REINFORCEMENT LEARNING
+                </span>
+
+                <h1 class="display-5 fw-bold">
+                    Reinforcement Learning Concepts
+                </h1>
+
+                <p class="lead text-muted mt-3">
+                    How an agent learns by trial and error, explained with
+                    the 10 × 10 maze used in the Application page.
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+
+                <i class="bi bi-robot display-1 text-success"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- What is Reinforcement Learning? -->
+
+<section class="container py-5">
+
+    <div class="row g-4">
+
+        <div class="col-lg-7">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <span class="badge bg-success mb-3">
+                        CONCEPT 01
+                    </span>
+
+                    <h2 class="fw-bold">
+                        What is Reinforcement Learning?
+                    </h2>
+
+                    <p class="text-muted mt-3">
+                        Reinforcement Learning (RL) is the type of Machine
+                        Learning in which an agent learns what to do by
+                        interacting with an environment. Nobody gives it
+                        the correct answers: it tries actions, receives
+                        rewards or penalties, and gradually prefers the
+                        actions that lead to the highest accumulated
+                        reward.
+                    </p>
+
+                    <p class="text-muted">
+                        In our exercise a virtual robot starts in the
+                        top-left corner of a maze and must discover, on
+                        its own, a route to the target in the bottom-right
+                        corner while avoiding walls and Danger Zones.
+                    </p>
+
+                    <div class="alert alert-success mt-4 mb-0">
+
+                        <i class="bi bi-lightbulb-fill me-2"></i>
+
+                        <strong>
+                            Act → Observe the reward → Adjust → Repeat
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-5">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <h4 class="fw-bold mb-3">
+                        The exercise environment
+                    </h4>
+
+                    {% include "_rl_grid.html" %}
+
+                    <p class="text-muted small mt-3 mb-0 text-center">
+                        A = agent start · T = target · o = path ·
+                        # = wall · D = Danger Zone
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Interaction Diagram -->
+
+<section class="py-5 bg-dark text-white">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success">
+                DIAGRAM
+            </span>
+
+            <h2 class="fw-bold mt-3 text-white">
+                The Agent – Environment Loop
+            </h2>
+
+            <p class="text-white-50">
+                Every step of the exercise follows this cycle.
+            </p>
+
+        </div>
+
+        <div class="row g-4 align-items-center text-center">
+
+            <div class="col-md-4">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4">
+
+                        <i class="bi bi-robot rl-icon"></i>
+
+                        <h4 class="fw-bold mt-2">Agent</h4>
+
+                        <p class="text-muted mb-0">
+                            The robot. It looks at its state and
+                            chooses an action.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="alert alert-primary mb-3">
+                    <i class="bi bi-arrow-right-circle-fill me-2"></i>
+                    <strong>Action</strong>: Up, Down, Left or Right
+                </div>
+
+                <div class="alert alert-warning mb-3">
+                    <i class="bi bi-arrow-left-circle-fill me-2"></i>
+                    <strong>Reward</strong>: for example −1, −15 or +100
+                </div>
+
+                <div class="alert alert-success mb-0">
+                    <i class="bi bi-arrow-left-circle-fill me-2"></i>
+                    <strong>Next state</strong>: new (row, column)
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card bg-light text-dark border-0 h-100">
+
+                    <div class="card-body p-4">
+
+                        <i class="bi bi-grid-3x3-gap-fill rl-icon"></i>
+
+                        <h4 class="fw-bold mt-2">Environment</h4>
+
+                        <p class="text-muted mb-0">
+                            The maze and its rules. It answers with a
+                            reward and the next state.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Core Elements -->
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="badge bg-success">
+            CONCEPTS 02 – 07
+        </span>
+
+        <h2 class="fw-bold mt-3">
+            Core Elements
+        </h2>
+
+        <p class="text-muted">
+            The pieces of every Reinforcement Learning problem and what
+            they are in our maze.
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <i class="bi bi-robot rl-icon"></i>
+                    <h4 class="fw-bold mt-2">Agent</h4>
+                    <p class="text-muted mb-0">
+                        Whoever makes the decisions and learns. Here it
+                        is the virtual robot, shown as <code>A</code> at
+                        its starting cell {{ start }}.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <i class="bi bi-grid-3x3-gap-fill rl-icon"></i>
+                    <h4 class="fw-bold mt-2">Environment</h4>
+                    <p class="text-muted mb-0">
+                        Everything the agent interacts with: the 10 × 10
+                        maze, its 20 walls, its 10 Danger Zones and the
+                        movement rules.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <i class="bi bi-geo-alt-fill rl-icon"></i>
+                    <h4 class="fw-bold mt-2">State</h4>
+                    <p class="text-muted mb-0">
+                        The situation the agent is in. Here it is the
+                        current <code>(row, column)</code>, from
+                        {{ start }} to the target at {{ goal }}.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <i class="bi bi-arrows-move rl-icon"></i>
+                    <h4 class="fw-bold mt-2">Action</h4>
+                    <p class="text-muted mb-0">
+                        What the agent can do in a state. There are four:
+                        <strong>Up, Down, Left, Right</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <i class="bi bi-trophy-fill rl-icon"></i>
+                    <h4 class="fw-bold mt-2">Reward</h4>
+                    <p class="text-muted mb-0">
+                        A number the environment returns after each
+                        action to say how good it was. Reaching
+                        <code>T</code> gives the only positive reward.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <i class="bi bi-exclamation-triangle-fill rl-icon text-danger"></i>
+                    <h4 class="fw-bold mt-2">Penalty</h4>
+                    <p class="text-muted mb-0">
+                        A negative reward. Each step, each collision and
+                        especially each Danger Zone <code>D</code>
+                        subtracts points.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Rewards Table -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-7">
+
+                <span class="badge bg-success mb-3">
+                    REWARDS AND PENALTIES IN THE EXERCISE
+                </span>
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered shadow-sm">
+
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Event</th>
+                                <th class="text-end">Reward</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for item in rewards %}
+                            <tr>
+                                <td>{{ item.event }}</td>
+                                <td class="text-end fw-bold {{ 'text-success' if item.value > 0 else 'text-danger' }}">
+                                    {{ "%+d"|format(item.value) }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-5">
+
+                <span class="badge bg-success mb-3">
+                    THE FOUR ACTIONS
+                </span>
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered shadow-sm">
+
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Action</th>
+                                <th>Effect on (row, column)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td><i class="bi bi-arrow-up"></i> Up</td>
+                                <td>row − 1</td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-arrow-down"></i> Down</td>
+                                <td>row + 1</td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-arrow-left"></i> Left</td>
+                                <td>column − 1</td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-arrow-right"></i> Right</td>
+                                <td>column + 1</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Policy, Step, Episode, Experience -->
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="badge bg-success">
+            CONCEPTS 08 – 11
+        </span>
+
+        <h2 class="fw-bold mt-3">
+            How the Agent Lives and Learns
+        </h2>
+
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <i class="bi bi-signpost-split-fill rl-icon"></i>
+                    <h4 class="fw-bold mt-2">Policy</h4>
+                    <p class="text-muted mb-0">
+                        The rule that tells the agent which action to
+                        take in each state. After training, our policy
+                        is: “in each cell, take the action with the
+                        highest Q-value”. Following it from
+                        <code>A</code> draws the learned path.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <i class="bi bi-skip-forward-fill rl-icon"></i>
+                    <h4 class="fw-bold mt-2">Step</h4>
+                    <p class="text-muted mb-0">
+                        One single interaction: the agent takes an
+                        action and the environment returns a reward and
+                        the next state. Example: from (0,0) the action
+                        Right leads to (0,1) with reward −1.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <i class="bi bi-arrow-repeat rl-icon"></i>
+                    <h4 class="fw-bold mt-2">Episode</h4>
+                    <p class="text-muted mb-0">
+                        One complete attempt, from the start cell until
+                        the agent reaches <code>T</code> or uses its
+                        {{ config.max_steps }} allowed steps. Training
+                        runs {{ config.episodes }} episodes.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <i class="bi bi-journal-text rl-icon"></i>
+                    <h4 class="fw-bold mt-2">Experience</h4>
+                    <p class="text-muted mb-0">
+                        What the agent records in each step:
+                        <code>(state, action, reward, next state)</code>.
+                        Each experience is used once to correct the
+                        model with <code>partial_fit()</code>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Exploration vs Exploitation -->
+
+<section class="py-5 bg-dark text-white">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success">
+                CONCEPTS 12 – 14
+            </span>
+
+            <h2 class="fw-bold mt-3 text-white">
+                Exploration, Exploitation and Epsilon-Greedy
+            </h2>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card bg-light text-dark border-0 h-100">
+                    <div class="card-body p-4 text-center">
+                        <i class="bi bi-compass-fill rl-icon"></i>
+                        <h4 class="fw-bold mt-2">Exploration</h4>
+                        <p class="text-muted mb-0">
+                            Choosing a random action to discover the
+                            maze: new corridors, walls and Danger Zones
+                            the agent has not tried yet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card bg-light text-dark border-0 h-100">
+                    <div class="card-body p-4 text-center">
+                        <i class="bi bi-bullseye rl-icon"></i>
+                        <h4 class="fw-bold mt-2">Exploitation</h4>
+                        <p class="text-muted mb-0">
+                            Using what is already known: choosing the
+                            action with the best estimated Q-value in
+                            the current cell.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card bg-light text-dark border-0 h-100">
+                    <div class="card-body p-4 text-center">
+                        <i class="bi bi-dice-5-fill rl-icon"></i>
+                        <h4 class="fw-bold mt-2">Epsilon-Greedy</h4>
+                        <p class="text-muted mb-0">
+                            With probability ε explore, otherwise
+                            exploit. ε starts at
+                            {{ config.epsilon_start }}, is multiplied by
+                            {{ config.epsilon_decay }} after each
+                            episode and never drops below
+                            {{ config.epsilon_min }}.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="alert alert-warning mt-4 mb-0">
+
+            <i class="bi bi-info-circle-fill me-2"></i>
+
+            Only exploring never uses what was learned; only exploiting
+            can get stuck on the first route found, even if it crosses
+            a Danger Zone. Epsilon-Greedy balances both.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Values and Q-Learning (Accordion) -->
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="badge bg-success">
+            CONCEPTS 15 – 20
+        </span>
+
+        <h2 class="fw-bold mt-3">
+            From Rewards to Q-Learning
+        </h2>
+
+        <p class="text-muted">
+            Open each item to see the idea and its meaning in the maze.
+        </p>
+
+    </div>
+
+    <div class="accordion shadow-sm" id="valueAccordion">
+
+        <div class="accordion-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#accImmediate">
+                    <i class="bi bi-lightning-charge-fill text-success me-2"></i>
+                    Immediate reward
+                </button>
+            </h3>
+            <div id="accImmediate" class="accordion-collapse collapse show"
+                 data-bs-parent="#valueAccordion">
+                <div class="accordion-body text-muted">
+                    The reward received right after one action. Stepping
+                    on a normal cell gives −1; stepping on a
+                    <code>D</code> gives −15. Looking only at the
+                    immediate reward is short-sighted: every normal move
+                    looks equally bad, even the ones that approach the
+                    target.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#accReturn">
+                    <i class="bi bi-cash-stack text-success me-2"></i>
+                    Return
+                </button>
+            </h3>
+            <div id="accReturn" class="accordion-collapse collapse"
+                 data-bs-parent="#valueAccordion">
+                <div class="accordion-body text-muted">
+                    The accumulated (discounted) reward from a moment
+                    until the end of the episode. This is what the agent
+                    really wants to maximise.
+                    <div class="formula-box">
+                        <p>G = r₁ + γ·r₂ + γ²·r₃ + …</p>
+                    </div>
+                    A route of 18 moves that avoids every Danger Zone
+                    collects 17 × (−1) + 100 = 83 points without
+                    discount.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#accGamma">
+                    <i class="bi bi-hourglass-split text-success me-2"></i>
+                    Discount factor (γ)
+                </button>
+            </h3>
+            <div id="accGamma" class="accordion-collapse collapse"
+                 data-bs-parent="#valueAccordion">
+                <div class="accordion-body text-muted">
+                    A number between 0 and 1 that says how much future
+                    rewards are worth today. We use
+                    γ = {{ config.gamma }}: the +100 of the target is
+                    still worth a lot many steps earlier, so it can
+                    guide the agent from the start, but a reward that
+                    arrives sooner is always worth a bit more, which
+                    favours short routes.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#accV">
+                    <i class="bi bi-pin-map-fill text-success me-2"></i>
+                    State value V(s)
+                </button>
+            </h3>
+            <div id="accV" class="accordion-collapse collapse"
+                 data-bs-parent="#valueAccordion">
+                <div class="accordion-body text-muted">
+                    The return the agent expects when it is in state
+                    <em>s</em> and keeps following its policy. Cells
+                    next to <code>T</code> have a high value; cells far
+                    away or surrounded by Danger Zones have a lower one.
+                    In our exercise V(s) is the best Q-value of the
+                    cell: V(s) = max Q(s, a).
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#accQ">
+                    <i class="bi bi-table text-success me-2"></i>
+                    Action value Q(s, a)
+                </button>
+            </h3>
+            <div id="accQ" class="accordion-collapse collapse"
+                 data-bs-parent="#valueAccordion">
+                <div class="accordion-body text-muted">
+                    The return expected when the agent is in state
+                    <em>s</em>, takes action <em>a</em> and then follows
+                    its policy. Each open cell has four Q-values, one
+                    per action. If Q((0,0), Right) is larger than the
+                    other three, the agent moves Right from the start.
+                    The Application page shows this table for every
+                    valid cell.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#accQL">
+                    <i class="bi bi-cpu-fill text-success me-2"></i>
+                    Q-Learning
+                </button>
+            </h3>
+            <div id="accQL" class="accordion-collapse collapse"
+                 data-bs-parent="#valueAccordion">
+                <div class="accordion-body text-muted">
+                    The algorithm that learns the Q-values from
+                    experience. After each step it moves Q(s, a) towards
+                    a target built from the reward and the best value of
+                    the next state:
+                    <div class="formula-box">
+                        <p>target = r + γ · max Q(s′, a′)</p>
+                    </div>
+                    In our implementation a scikit-learn
+                    <code>SGDRegressor</code> stores the Q-values:
+                    <code>predict()</code> estimates Q(s, a) and
+                    <code>partial_fit()</code> corrects it towards the
+                    target, one transition at a time.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="alert alert-primary mt-5">
+
+        <i class="bi bi-play-circle-fill me-2"></i>
+
+        Ready to see it working?
+
+        <a href="{{ url_for('reinforcement_application') }}"
+           class="alert-link">
+            Go to the Application page and train the agent.
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
